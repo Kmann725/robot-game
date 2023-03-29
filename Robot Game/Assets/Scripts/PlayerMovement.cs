@@ -1,9 +1,3 @@
-/*
- * Kyle Manning
- * PlayerMovement.cs
- * Assignment 8
- * Handles player movement and mouse look functionality
- */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +14,10 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
 
     public GameObject playerCamera;
+    public GrenadeMaker gm;
+
+    public int normalGrenadeCount = 0;
+    public bool carryingNormal = false;
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +49,12 @@ public class PlayerMovement : MonoBehaviour
             Time.timeScale = 1;
             SceneManager.LoadScene(0);
         }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1) && normalGrenadeCount > 0 && !carryingNormal)
+        {
+            gm.GenerateGrenade();
+            carryingNormal = true;
+        }
     }
 
     private void MouseLook()
@@ -77,6 +81,15 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("ground"))
         {
             canJump = false;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("normal grenade pickup"))
+        {
+            normalGrenadeCount++;
+            Destroy(other.gameObject);
         }
     }
 }
