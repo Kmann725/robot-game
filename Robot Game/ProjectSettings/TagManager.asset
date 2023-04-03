@@ -7,6 +7,10 @@ TagManager:
   - ground
   - normal grenade pickup
   - Carry
+  - emp grenade pickup
+  - emp wave
+  - normal grenade
+  - emp grenade
   layers:
   - Default
   - TransparentFX

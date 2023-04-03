@@ -17,7 +17,9 @@ public class PlayerMovement : MonoBehaviour
     public GrenadeMaker gm;
 
     public int normalGrenadeCount = 0;
+    public int empGrenadeCount = 0;
     public bool carryingNormal = false;
+    public bool carryingEMP = false;
 
     // Start is called before the first frame update
     void Start()
@@ -52,8 +54,13 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha1) && normalGrenadeCount > 0 && !carryingNormal)
         {
-            gm.GenerateGrenade();
+            gm.GenerateGrenade(1);
             carryingNormal = true;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2) && empGrenadeCount > 0 && !carryingEMP)
+        {
+            gm.GenerateGrenade(2);
+            carryingEMP = true;
         }
     }
 
@@ -89,6 +96,11 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("normal grenade pickup"))
         {
             normalGrenadeCount++;
+            Destroy(other.gameObject);
+        }
+        else if (other.gameObject.CompareTag("emp grenade pickup"))
+        {
+            empGrenadeCount++;
             Destroy(other.gameObject);
         }
     }

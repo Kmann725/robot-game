@@ -8,6 +8,8 @@ public class NormalGrenade : Grenade
 
     public override void Explode()
     {
+        src.PlayOneShot(soundEffect);
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
         GameObject newRadius = Instantiate(radiusVisual, transform.position, transform.rotation);
 
         Collider[] cols = Physics.OverlapSphere(transform.position, explosionRadius);
@@ -22,6 +24,6 @@ public class NormalGrenade : Grenade
 
         Instantiate(explosionEffect, transform.position, transform.rotation);
         Destroy(newRadius, 0.6f);
-        Destroy(gameObject);
+        Destroy(gameObject, 0.8f);
     }
 }
