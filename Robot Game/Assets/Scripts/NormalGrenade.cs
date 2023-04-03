@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class NormalGrenade : Grenade
 {
+    public GameObject radiusVisual;
+
     public override void Explode()
     {
+        GameObject newRadius = Instantiate(radiusVisual, transform.position, transform.rotation);
+
         Collider[] cols = Physics.OverlapSphere(transform.position, explosionRadius);
         foreach (Collider col in cols)
         {
@@ -17,6 +21,7 @@ public class NormalGrenade : Grenade
         }
 
         Instantiate(explosionEffect, transform.position, transform.rotation);
+        Destroy(newRadius, 0.6f);
         Destroy(gameObject);
     }
 }

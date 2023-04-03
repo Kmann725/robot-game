@@ -33,10 +33,9 @@ public abstract class Grenade : MonoBehaviour
         {
             carried = false;
             thrown = true;
-            player.GetComponent<PlayerMovement>().normalGrenadeCount--;
             player.GetComponent<PlayerMovement>().carryingNormal = false;
             rb.AddForce(mainCamera.transform.forward * throwStrength);
-            rb.AddForce(Vector3.up * 300f);
+            rb.AddForce(Vector3.up * 450f);
         }
 
         if (carried)
