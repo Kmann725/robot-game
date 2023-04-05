@@ -134,7 +134,7 @@ MonoBehaviour:
   explosionStrength: 500
   carried: 1
   thrown: 0
-  explosionEffect: {fileID: 0}
+  explosionEffect: {fileID: 771140585929969710, guid: c5f88c9b9daf5414c852aa0be4c19854, type: 3}
   soundEffect: {fileID: 8300000, guid: c26b3748b7a7d814a8b71ba9f63b4ec8, type: 3}
   empRadius: {fileID: 7204876678810160015, guid: b4e8aa7ecd19648448488eed3dab5748, type: 3}
 --- !u!82 &-4997622631589364199

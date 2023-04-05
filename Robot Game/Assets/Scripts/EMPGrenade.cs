@@ -14,6 +14,8 @@ public class EMPGrenade : Grenade
         newRadius = Instantiate(empRadius, transform.position, transform.rotation);
 
         gameObject.GetComponent<MeshRenderer>().enabled = false;
+        gameObject.GetComponent<CapsuleCollider>().enabled = false;
+        Instantiate(explosionEffect, transform.position, transform.rotation);
 
         StartCoroutine(EnergyWave());
     }
