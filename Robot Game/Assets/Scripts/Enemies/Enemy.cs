@@ -122,6 +122,12 @@ public class Enemy : Damageable
     {
         if (other.CompareTag("Player"))
             target = other.gameObject;
+
+        if (other.gameObject.CompareTag("emp wave"))
+        {
+            Debug.Log("this works");
+            SetState(shockState);
+        }
     }
 
     private void OnTriggerExit(Collider other)
