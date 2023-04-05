@@ -35,6 +35,8 @@ public class Enemy : Damageable
 
     public Animator enemyAnimator;
 
+    public LayerMask raycastLayers;
+
     protected override void Awake()
     {
         base.Awake();
@@ -101,7 +103,7 @@ public class Enemy : Damageable
         if (target == null)
             return false;
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, target.transform.position - transform.position, out hit))
+        if (Physics.Raycast(transform.position, target.transform.position - transform.position, out hit, 10000, raycastLayers))
         {
             if (hit.collider.CompareTag("Player"))
                 return true;
