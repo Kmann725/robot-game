@@ -25,7 +25,7 @@ public class NormalGrenade : Grenade
         }
 
         Instantiate(explosionEffect, transform.position, transform.rotation);
-        Destroy(newRadius, 0.6f);
+        Destroy(newRadius, 0.3f);
         Destroy(gameObject, 0.8f);
     }
 }
