@@ -12,7 +12,8 @@ public class Enemy : Damageable
     public float attackRate;
     public float attackDamage;
 
-    public float speed;
+    public float walkSpeed;
+    public float runSpeed;
 
     public IEnemyState wanderState;
     public IEnemyState chaseState;
@@ -32,11 +33,13 @@ public class Enemy : Damageable
 
     protected bool canAttack = true;
 
+    public Animator enemyAnimator;
+
     protected override void Awake()
     {
         base.Awake();
         navMeshAgent = GetComponent<NavMeshAgent>();
-        navMeshAgent.speed = speed;
+        enemyAnimator = GetComponent<Animator>();
         wanderState = new WanderState(this);
         chaseState = new ChaseState(this);
         attackState = new AttackState(this);
@@ -61,22 +64,27 @@ public class Enemy : Damageable
 
     private IEnumerator AttackCoroutine()
     {
-        canAttack = false;
-        Attack();
-        yield return new WaitForSeconds(attackRate);
-        canAttack = true;
+        while(target != null)
+        {
+            canAttack = false;
+            Attack();
+            yield return new WaitForSeconds(attackRate);
+            canAttack = true;
+        }
     }
 
     public void Attack()
     {
-        GameObject bullet = Instantiate(bulletPrefab, transform.position + transform.forward, transform.rotation);
-        bullet.GetComponent<Rigidbody>().AddForce(transform.forward * 20f, ForceMode.Impulse);
-        Destroy(bullet, 2f);
+        enemyAnimator.Play("Shoot_SingleShot_AR");
+        //GameObject bullet = Instantiate(bulletPrefab, transform.position + transform.forward, transform.rotation);
+        //bullet.GetComponent<Rigidbody>().AddForce(transform.forward * 20f, ForceMode.Impulse);
+        //Destroy(bullet, 2f);
     }
 
     public void StopAttackCoroutine()
     {
-        StopCoroutine(attackRoutine);
+        if(attackRoutine != null)
+            StopCoroutine(attackRoutine);
     }
 
     public virtual void SetState(IEnemyState state)
@@ -90,17 +98,34 @@ public class Enemy : Damageable
 
     public bool IsPlayerInSight()
     {
+        if (target == null)
+            return false;
         RaycastHit hit;
         if (Physics.Raycast(transform.position, target.transform.position - transform.position, out hit))
         {
             if (hit.collider.CompareTag("Player"))
                 return true;
         }
+        if (Vector3.Distance(target.transform.position, transform.position) > chaseRadius)
+            target = null;
         return false;
     }
 
     protected override void Destruction()
     {
         SetState(deadState);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+            target = other.gameObject;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+            if (!IsPlayerInSight())
+                target = null;
     }
 }

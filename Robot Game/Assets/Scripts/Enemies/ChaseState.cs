@@ -16,6 +16,8 @@ public class ChaseState : IEnemyState
     public void EnterState()
     {
         enemy.navMeshAgent.SetDestination(enemy.target.transform.position);
+        enemy.navMeshAgent.speed = enemy.runSpeed;
+        enemy.enemyAnimator.Play("Run_gunMiddle_AR");
     }
 
     public void UpdateState()

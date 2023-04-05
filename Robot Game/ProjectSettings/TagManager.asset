@@ -11,6 +11,7 @@ TagManager:
   - emp wave
   - normal grenade
   - emp grenade
+  - Enemy
   layers:
   - Default
   - TransparentFX

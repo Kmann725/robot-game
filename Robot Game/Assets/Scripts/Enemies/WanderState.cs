@@ -18,6 +18,8 @@ public class WanderState : IEnemyState
     public void EnterState()
     {
         enemy.navMeshAgent.SetDestination(GetRandomLocation());
+        enemy.navMeshAgent.speed = enemy.walkSpeed;
+        enemy.enemyAnimator.Play("WalkFront_Shoot_AR");
     }
 
     /// <summary>

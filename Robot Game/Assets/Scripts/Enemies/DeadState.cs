@@ -14,6 +14,7 @@ public class DeadState : IEnemyState
     public void EnterState()
     {
         // Play Death Animation
+        enemy.enemyAnimator.Play("Die");
     }
 
     public void UpdateState()

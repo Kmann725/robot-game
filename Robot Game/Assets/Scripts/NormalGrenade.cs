@@ -20,6 +20,8 @@ public class NormalGrenade : Grenade
                 Vector3 direction = col.gameObject.transform.position - transform.position;
                 col.gameObject.GetComponent<Rigidbody>().AddForce(direction.normalized * explosionStrength);
             }
+            if (col.gameObject.CompareTag("Enemy"))
+                col.gameObject.GetComponent<Enemy>().TakeDamage(50);
         }
 
         Instantiate(explosionEffect, transform.position, transform.rotation);
