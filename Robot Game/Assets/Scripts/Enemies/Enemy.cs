@@ -55,15 +55,6 @@ public class Enemy : Damageable
     {
         if (currentState != null)
             currentState.UpdateState();
-
-        Collider[] cols = Physics.OverlapSphere(transform.position, chaseRadius);
-        foreach (Collider col in cols)
-        {
-            if (col.gameObject.CompareTag("Player"))
-            {
-                target = col.gameObject;
-            }
-        }
     }
 
     public void StartAttackCoroutine()
@@ -129,11 +120,8 @@ public class Enemy : Damageable
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("emp wave"))
-        {
-            Debug.Log("this works");
-            SetState(shockState);
-        }
+        if (other.CompareTag("Player"))
+            target = other.gameObject;
     }
 
     private void OnTriggerExit(Collider other)

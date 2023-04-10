@@ -32,4 +32,14 @@ public class EMPGrenade : Grenade
         Destroy(newRadius);
         Destroy(gameObject, 0.5f);
     }
+
+    
+    /*private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag("Enemy") && !collision.collider.isTrigger)
+        {
+            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+            enemy.SetState(enemy.shockState);
+        }
+    }*/
 }

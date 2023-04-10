@@ -13,7 +13,7 @@ public class AttackState : IEnemyState
 
     public void EnterState()
     {
-        enemy.enemyAnimator.Play("idle_Shoot_Ar");
+        enemy.enemyAnimator.Play("Idle_Shoot_Ar");
         enemy.StartAttackCoroutine();
     }
 
