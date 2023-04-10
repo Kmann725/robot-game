@@ -12,6 +12,8 @@ TagManager:
   - normal grenade
   - emp grenade
   - Enemy
+  - gravity well grenade pickup
+  - gravity well grenade
   layers:
   - Default
   - TransparentFX

@@ -6,6 +6,11 @@ public class NormalGrenade : Grenade
 {
     public GameObject radiusVisual;
 
+    public override void EmptyHand()
+    {
+        player.GetComponent<PlayerMovement>().carryingNormal = false;
+    }
+
     public override void Explode()
     {
         src.PlayOneShot(soundEffect);

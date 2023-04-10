@@ -18,8 +18,10 @@ public class PlayerMovement : MonoBehaviour
 
     public int normalGrenadeCount = 0;
     public int empGrenadeCount = 0;
+    public int gravityWellGrenadeCount = 0;
     public bool carryingNormal = false;
     public bool carryingEMP = false;
+    public bool carryingGravity = false;
 
     // Start is called before the first frame update
     void Start()
@@ -62,6 +64,11 @@ public class PlayerMovement : MonoBehaviour
             gm.GenerateGrenade(2);
             carryingEMP = true;
         }
+        else if (Input.GetKeyDown(KeyCode.Alpha3) && gravityWellGrenadeCount > 0 && !carryingGravity)
+        {
+            gm.GenerateGrenade(3);
+            carryingGravity = true;
+        }
     }
 
     private void MouseLook()
@@ -101,6 +108,11 @@ public class PlayerMovement : MonoBehaviour
         else if (other.gameObject.CompareTag("emp grenade pickup"))
         {
             empGrenadeCount++;
+            Destroy(other.gameObject);
+        }
+        else if (other.gameObject.CompareTag("gravity well grenade pickup"))
+        {
+            gravityWellGrenadeCount++;
             Destroy(other.gameObject);
         }
     }

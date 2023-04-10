@@ -8,6 +8,11 @@ public class EMPGrenade : Grenade
 
     public GameObject empRadius;
 
+    public override void EmptyHand()
+    {
+        player.GetComponent<PlayerMovement>().carryingEMP = false;
+    }
+
     public override void Explode()
     {
         src.PlayOneShot(soundEffect);

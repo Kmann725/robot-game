@@ -6,6 +6,7 @@ public class GrenadeMaker : MonoBehaviour
 {
     public GameObject normalGrenade;
     public GameObject empGrenade;
+    public GameObject gravityWellGrenade;
 
     public GameObject currentGrenade = null;
 
@@ -29,6 +30,7 @@ public class GrenadeMaker : MonoBehaviour
                 {
                     Destroy(currentGrenade.gameObject);
                     pm.carryingEMP = false;
+                    pm.carryingGravity = false;
                     currentGrenade = Instantiate(normalGrenade, transform.position, transform.rotation);
                 }
                 break;
@@ -41,7 +43,21 @@ public class GrenadeMaker : MonoBehaviour
                 {
                     Destroy(currentGrenade.gameObject);
                     pm.carryingNormal = false;
+                    pm.carryingGravity = false;
                     currentGrenade = Instantiate(empGrenade, transform.position, transform.rotation);
+                }
+                break;
+            case 3:
+                if (currentGrenade == null)
+                {
+                    currentGrenade = Instantiate(gravityWellGrenade, transform.position, transform.rotation);
+                }
+                else
+                {
+                    Destroy(currentGrenade.gameObject);
+                    pm.carryingNormal = false;
+                    pm.carryingEMP = false;
+                    currentGrenade = Instantiate(gravityWellGrenade, transform.position, transform.rotation);
                 }
                 break;
         }

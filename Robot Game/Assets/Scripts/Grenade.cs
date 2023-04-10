@@ -11,7 +11,7 @@ public abstract class Grenade : MonoBehaviour
     public bool thrown = false;
 
     private Rigidbody rb;
-    private GameObject player;
+    protected GameObject player;
     private GameObject mainCamera;
     private GameObject carrySpot;
     private GrenadeMaker gm;
@@ -39,14 +39,8 @@ public abstract class Grenade : MonoBehaviour
             carried = false;
             thrown = true;
 
-            if (gameObject.CompareTag("normal grenade"))
-            {
-                player.GetComponent<PlayerMovement>().carryingNormal = false;
-            }
-            else if (gameObject.CompareTag("emp grenade"))
-            {
-                player.GetComponent<PlayerMovement>().carryingEMP = false;
-            }
+            EmptyHand();
+
             gm.currentGrenade = null;
 
             rb.AddForce(mainCamera.transform.forward * throwStrength);
@@ -67,6 +61,8 @@ public abstract class Grenade : MonoBehaviour
             thrown = false;
         }
     }
+
+    public abstract void EmptyHand();
 
     public abstract void Explode();
 }
