@@ -30,6 +30,7 @@ public class Enemy : Damageable
     protected IEnemyState currentState;
 
     protected Coroutine attackRoutine;
+    protected Coroutine shockRoutine;
 
     protected bool canAttack = true;
 
@@ -45,7 +46,7 @@ public class Enemy : Damageable
         wanderState = new WanderState(this);
         chaseState = new ChaseState(this);
         attackState = new AttackState(this);
-        shockState = new DeadState(this);
+        shockState = new ShockState(this);
         deadState = new DeadState(this);
         SetState(wanderState);
         // Create state objects
@@ -73,6 +74,21 @@ public class Enemy : Damageable
             yield return new WaitForSeconds(attackRate);
             canAttack = true;
         }
+    }
+
+    public void StartShockCoroutine()
+    {
+        if(shockRoutine != null)
+        {
+            StopCoroutine(shockRoutine);
+        }
+        shockRoutine = StartCoroutine(ShockCoroutine());
+    }
+
+    private IEnumerator ShockCoroutine()
+    {
+        yield return new WaitForSeconds(3);
+        SetState(wanderState);
     }
 
     public void Attack()
