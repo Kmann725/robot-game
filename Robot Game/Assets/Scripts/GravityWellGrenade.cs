@@ -14,7 +14,7 @@ public class GravityWellGrenade : Grenade
         Collider[] cols = Physics.OverlapSphere(transform.position, explosionRadius);
         foreach (Collider col in cols)
         {
-            if (col.gameObject.GetComponent<Rigidbody>() && !col.gameObject.CompareTag("Player"))
+            if (col.gameObject.GetComponent<Rigidbody>() && !col.gameObject.CompareTag("Player") && !col.isTrigger)
             {
                 Vector3 direction = transform.position - col.gameObject.transform.position;
                 col.gameObject.GetComponent<Rigidbody>().AddForce(direction.normalized * explosionStrength);

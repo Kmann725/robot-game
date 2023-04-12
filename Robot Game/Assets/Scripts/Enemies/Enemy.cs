@@ -134,6 +134,14 @@ public class Enemy : Damageable
         SetState(deadState);
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("physics object") && collision.gameObject.GetComponent<Rigidbody>().velocity.magnitude > 1)
+        {
+            TakeDamage(30);
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))

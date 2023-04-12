@@ -21,7 +21,7 @@ public class NormalGrenade : Grenade
         Collider[] cols = Physics.OverlapSphere(transform.position, explosionRadius);
         foreach (Collider col in cols)
         {
-            if (col.gameObject.GetComponent<Rigidbody>() && !col.gameObject.CompareTag("Player"))
+            if (col.gameObject.GetComponent<Rigidbody>() && !col.gameObject.CompareTag("Player") && !col.isTrigger)
             {
                 Vector3 direction = col.gameObject.transform.position - transform.position;
                 col.gameObject.GetComponent<Rigidbody>().AddForce(direction.normalized * explosionStrength);
@@ -31,7 +31,7 @@ public class NormalGrenade : Grenade
         }
 
         Instantiate(explosionEffect, transform.position, transform.rotation);
-        Destroy(newRadius, 0.2f);
+        Destroy(newRadius, 0.1f);
         Destroy(gameObject, 0.8f);
     }
 }

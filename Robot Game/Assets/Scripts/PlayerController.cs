@@ -52,8 +52,6 @@ public class PlayerController : Damageable, IPlayerSubject
         inputX = Input.GetAxis("Horizontal");
         inputZ = Input.GetAxis("Vertical");
 
-        //transform.position += movement * speed * Time.deltaTime;
-
         MouseLook();
 
         if (Input.GetKeyDown(KeyCode.Space) && canJump)
