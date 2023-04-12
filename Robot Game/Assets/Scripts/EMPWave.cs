@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class EMPWave : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("collision");
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy") && !other.isTrigger)

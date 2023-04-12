@@ -23,6 +23,9 @@ public class PlayerMovement : MonoBehaviour
     public bool carryingEMP = false;
     public bool carryingGravity = false;
 
+    float inputX;
+    float inputZ;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,12 +37,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+        inputX = Input.GetAxis("Horizontal");
+        inputZ = Input.GetAxis("Vertical");
 
-        Vector3 movement = transform.right * x + transform.forward * z;
-
-        transform.position += movement * speed * Time.deltaTime;
+        //transform.position += movement * speed * Time.deltaTime;
 
         MouseLook();
 
@@ -69,6 +70,17 @@ public class PlayerMovement : MonoBehaviour
             gm.GenerateGrenade(3);
             carryingGravity = true;
         }
+    }
+
+    private void FixedUpdate()
+    {
+        Vector3 movement = (transform.right * inputX + transform.forward * inputZ) * speed;
+
+        Debug.Log(movement);
+
+        rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z);
+
+        Debug.Log(rb.velocity);
     }
 
     private void MouseLook()
