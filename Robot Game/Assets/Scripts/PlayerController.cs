@@ -14,7 +14,15 @@ public class PlayerController : Damageable, IPlayerSubject
     private Rigidbody rb;
 
     public GameObject playerCamera;
+    public GameObject pistol;
     public GrenadeMaker gm;
+    Camera cam;
+
+    //Weapon variables
+    public ParticleSystem muzzleFlash;
+    public int gunDamage = 10;
+    public float range = 100f;
+    public float hitForce = 10f;
 
     public int normalGrenadeCount = 0;
     public int empGrenadeCount = 0;
@@ -42,6 +50,8 @@ public class PlayerController : Damageable, IPlayerSubject
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        cam = GetComponentInChildren<Camera>();
+        pistol = transform.Find("Pistol").gameObject;
 
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -81,6 +91,19 @@ public class PlayerController : Damageable, IPlayerSubject
             carryingGravity = true;
         }
 
+        if (!carryingGravity && !carryingNormal && !carryingEMP)
+        {
+            pistol.SetActive(true);
+            if (Input.GetMouseButtonDown(0))
+            {
+                Shoot();
+            }
+        }
+        else
+        {
+            pistol.SetActive(false);
+        }
+
         if (Input.GetKeyDown(KeyCode.Y))
             TakeDamage(10);
     }
@@ -101,6 +124,36 @@ public class PlayerController : Damageable, IPlayerSubject
 
         playerCamera.transform.eulerAngles = new Vector3(-xRot, transform.eulerAngles.y, 0);
         transform.Rotate(0, y, 0);
+    }
+
+    void Shoot()
+    {
+        RaycastHit hitInfo;
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hitInfo, range))
+        {
+            //Debug.Log(hitInfo.transform.gameObject.name);
+
+
+            //Get the Target script off the hit object
+            Enemy target =
+            hitInfo.transform.gameObject.GetComponent<Enemy>();
+            //If a target script was found, make the target take damage
+            if (target != null)
+            {
+                //Instantiate(bullet, transformPos.transform);
+                //target.SpawnBullet(hitInfo.point, cam.transform.rotation);
+                target.TakeDamage(gunDamage);
+            }
+
+            //If the shot hits a Rigidbody, apply a force
+            if (hitInfo.rigidbody != null)
+            {
+                hitInfo.rigidbody.AddForce(cam.transform.TransformDirection(Vector3.forward) * hitForce, ForceMode.Impulse);
+            }
+        }
+
+        //At the beginning of the Shoot() method, play the particle effect
+        muzzleFlash.Play();
     }
 
     private void OnCollisionEnter(Collision collision)
