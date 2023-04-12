@@ -11,6 +11,7 @@ public class EMPGrenade : Grenade
     public override void EmptyHand()
     {
         player.GetComponent<PlayerController>().carryingEMP = false;
+        player.GetComponent<PlayerController>().empGrenadeCount--;
     }
 
     public override void Explode()
