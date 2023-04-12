@@ -9,6 +9,7 @@ public abstract class Grenade : MonoBehaviour
     public float explosionStrength = 500f;
     public bool carried = true;
     public bool thrown = false;
+    public bool exploded = false;
 
     private Rigidbody rb;
     protected GameObject player;
@@ -34,7 +35,7 @@ public abstract class Grenade : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !thrown)
+        if (Input.GetMouseButtonDown(0) && !thrown && !exploded)
         {
             rb.constraints = RigidbodyConstraints.None;
             carried = false;
@@ -43,6 +44,7 @@ public abstract class Grenade : MonoBehaviour
             transform.parent = null;
 
             EmptyHand();
+            player.GetComponent<PlayerController>().NotifyPlayerObservers();
 
             gm.currentGrenade = null;
 
@@ -63,6 +65,7 @@ public abstract class Grenade : MonoBehaviour
         {
             Explode();
             thrown = false;
+            exploded = true;
         }
     }
 

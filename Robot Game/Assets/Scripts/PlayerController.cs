@@ -125,16 +125,19 @@ public class PlayerController : Damageable, IPlayerSubject
         {
             normalGrenadeCount++;
             Destroy(other.gameObject);
+            NotifyPlayerObservers();
         }
         else if (other.gameObject.CompareTag("emp grenade pickup"))
         {
             empGrenadeCount++;
             Destroy(other.gameObject);
+            NotifyPlayerObservers();
         }
         else if (other.gameObject.CompareTag("gravity well grenade pickup"))
         {
             gravityWellGrenadeCount++;
             Destroy(other.gameObject);
+            NotifyPlayerObservers();
         }
     }
 
@@ -166,5 +169,8 @@ public class PlayerController : Damageable, IPlayerSubject
     public void UpdatePlayerDataForObservers()
     {
         playerDataForObservers.PlayerHealth = currentHealth;
+        playerDataForObservers.NormalGrenadeCount = normalGrenadeCount;
+        playerDataForObservers.EMPGrenadeCount = empGrenadeCount;
+        playerDataForObservers.GravityWellGrenadeCount = gravityWellGrenadeCount;
     }
 }

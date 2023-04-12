@@ -12,6 +12,9 @@ using UnityEngine;
 public class PlayerData
 {
     public int PlayerHealth;
+    public int NormalGrenadeCount;
+    public int EMPGrenadeCount;
+    public int GravityWellGrenadeCount;
     public bool IsPlayerSliding;
     public bool IsPlayerTeleporting;
     public bool PlayerSpeedBuffed;
@@ -20,5 +23,8 @@ public class PlayerData
     public PlayerData(int health = 100)
     {
         PlayerHealth = health;
+        NormalGrenadeCount = 0;
+        EMPGrenadeCount = 0;
+        GravityWellGrenadeCount = 0;
     }
 }
