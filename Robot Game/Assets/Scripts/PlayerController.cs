@@ -82,17 +82,16 @@ public class PlayerController : Damageable, IPlayerSubject
             gm.GenerateGrenade(3);
             carryingGravity = true;
         }
+
+        if (Input.GetKeyDown(KeyCode.Y))
+            TakeDamage(10);
     }
 
     private void FixedUpdate()
     {
         Vector3 movement = (transform.right * inputX + transform.forward * inputZ) * speed;
 
-        Debug.Log(movement);
-
         rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z);
-
-        Debug.Log(rb.velocity);
     }
 
     private void MouseLook()
