@@ -36,20 +36,24 @@ public abstract class Grenade : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && !thrown)
         {
+            rb.constraints = RigidbodyConstraints.None;
             carried = false;
             thrown = true;
+
+            transform.parent = null;
 
             EmptyHand();
 
             gm.currentGrenade = null;
 
             rb.AddForce(mainCamera.transform.forward * throwStrength);
-            rb.AddForce(Vector3.up * 450f);
+            rb.AddForce(mainCamera.transform.up * 350f);
         }
 
         if (carried)
         {
             transform.position = carrySpot.transform.position;
+            transform.rotation = gm.transform.rotation;
         }
     }
 

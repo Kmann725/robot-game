@@ -10,11 +10,11 @@ public class GrenadeMaker : MonoBehaviour
 
     public GameObject currentGrenade = null;
 
-    private PlayerMovement pm;
+    private PlayerController pm;
 
     private void Start()
     {
-        pm = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        pm = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
     public void GenerateGrenade(int type)

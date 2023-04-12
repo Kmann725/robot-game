@@ -6,7 +6,7 @@ public class GravityWellGrenade : Grenade
 {
     public override void EmptyHand()
     {
-        player.GetComponent<PlayerMovement>().carryingGravity = false;
+        player.GetComponent<PlayerController>().carryingGravity = false;
     }
 
     public override void Explode()

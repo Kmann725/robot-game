@@ -8,7 +8,7 @@ public class NormalGrenade : Grenade
 
     public override void EmptyHand()
     {
-        player.GetComponent<PlayerMovement>().carryingNormal = false;
+        player.GetComponent<PlayerController>().carryingNormal = false;
     }
 
     public override void Explode()
