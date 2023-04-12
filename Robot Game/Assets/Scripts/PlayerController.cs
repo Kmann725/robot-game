@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerController : Damageable
+public class PlayerController : Damageable, IPlayerSubject
 {
     public float speed = 5f;
     public float jump = 5f;
@@ -25,6 +25,18 @@ public class PlayerController : Damageable
 
     float inputX;
     float inputZ;
+
+    public static PlayerController Instance;
+
+    List<IPlayerObserver> observers = new List<IPlayerObserver>();
+
+    private PlayerData playerDataForObservers = new PlayerData();
+
+    protected override void Awake()
+    {
+        base.Awake();
+        Instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -127,5 +139,35 @@ public class PlayerController : Damageable
             gravityWellGrenadeCount++;
             Destroy(other.gameObject);
         }
+    }
+
+    public override void TakeDamage(int damage)
+    {
+        base.TakeDamage(damage);
+        NotifyPlayerObservers();
+    }
+
+    public void RegisterPlayerObserver(IPlayerObserver observer)
+    {
+        observers.Add(observer);
+        NotifyPlayerObservers();
+    }
+
+    public void RemovePlayerObserver(IPlayerObserver observer)
+    {
+        if (observers.Contains(observer))
+            observers.Remove(observer);
+    }
+
+    public void NotifyPlayerObservers()
+    {
+        UpdatePlayerDataForObservers();
+        foreach (IPlayerObserver observer in observers)
+            observer.UpdateData(playerDataForObservers);
+    }
+
+    public void UpdatePlayerDataForObservers()
+    {
+        playerDataForObservers.PlayerHealth = currentHealth;
     }
 }
