@@ -51,7 +51,7 @@ public class PlayerController : Damageable, IPlayerSubject
     {
         rb = GetComponent<Rigidbody>();
         cam = GetComponentInChildren<Camera>();
-        pistol = transform.Find("Pistol").gameObject;
+        pistol = cam.transform.Find("Pistol").gameObject;
 
         Cursor.lockState = CursorLockMode.Locked;
     }
