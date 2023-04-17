@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : Damageable
+public abstract class Enemy : Damageable
 {
-    public float wanderRadius;
-    public float chaseRadius;
-    public float attackRadius;
+    public float wanderRadius = 15;
+    public float chaseRadius = 20;
+    public float attackRadius = 10;
 
-    public float attackRate;
-    public int attackDamage = 10;
+    public float attackRate = 1;
+    public int attackDamage = 5;
 
-    public float walkSpeed;
-    public float runSpeed;
+    public float walkSpeed = 2;
+    public float runSpeed = 5;
 
     public IEnemyState wanderState;
     public IEnemyState chaseState;
@@ -25,7 +25,7 @@ public class Enemy : Damageable
 
     public GameObject bulletPrefab;
 
-    public NavMeshAgent navMeshAgent;
+    [HideInInspector] public NavMeshAgent navMeshAgent;
 
     protected IEnemyState currentState;
 
@@ -34,7 +34,7 @@ public class Enemy : Damageable
 
     protected bool canAttack = true;
 
-    public Animator enemyAnimator;
+    [HideInInspector] public Animator enemyAnimator;
 
     public LayerMask raycastLayers;
 
@@ -52,20 +52,20 @@ public class Enemy : Damageable
         // Create state objects
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         if (currentState != null)
             currentState.UpdateState();
     }
 
-    public void StartAttackCoroutine()
+    public virtual void StartAttackCoroutine()
     {
         if (attackRoutine != null)
             StopCoroutine(attackRoutine);
         attackRoutine = StartCoroutine(AttackCoroutine());
     }
 
-    private IEnumerator AttackCoroutine()
+    protected virtual IEnumerator AttackCoroutine()
     {
         while(target != null)
         {
@@ -76,7 +76,7 @@ public class Enemy : Damageable
         }
     }
 
-    public void StartShockCoroutine()
+    public virtual void StartShockCoroutine()
     {
         if(shockRoutine != null)
         {
@@ -85,13 +85,13 @@ public class Enemy : Damageable
         shockRoutine = StartCoroutine(ShockCoroutine());
     }
 
-    private IEnumerator ShockCoroutine()
+    protected virtual IEnumerator ShockCoroutine()
     {
         yield return new WaitForSeconds(3);
         SetState(wanderState);
     }
 
-    public void Attack()
+    public virtual void Attack()
     {
         enemyAnimator.Play("Shoot_SingleShot_AR");
         GameObject bullet = Instantiate(bulletPrefab, transform.position + new Vector3(0,1.5f,0), transform.rotation);
@@ -99,7 +99,7 @@ public class Enemy : Damageable
         bullet.GetComponent<Bullet>().damage = attackDamage;
     }
 
-    public void StopAttackCoroutine()
+    public virtual void StopAttackCoroutine()
     {
         if(attackRoutine != null)
             StopCoroutine(attackRoutine);
@@ -114,7 +114,7 @@ public class Enemy : Damageable
             currentState.EnterState();
     }
 
-    public bool IsPlayerInSight()
+    public virtual bool IsPlayerInSight()
     {
         if (target == null)
             return false;
@@ -132,9 +132,10 @@ public class Enemy : Damageable
     protected override void Destruction()
     {
         SetState(deadState);
+        GameController.Instance.EnemyKilled();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    protected virtual void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("physics object") && collision.gameObject.GetComponent<Rigidbody>().velocity.magnitude > 1)
         {
@@ -142,13 +143,13 @@ public class Enemy : Damageable
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
             target = other.gameObject;
     }
 
-    private void OnTriggerExit(Collider other)
+    protected virtual void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
             if (!IsPlayerInSight())

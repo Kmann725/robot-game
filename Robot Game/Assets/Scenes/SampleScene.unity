@@ -123,6 +123,50 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 7e201fa20c5b2f64698fb28bd2ee1f5e, type: 2}
+--- !u!1 &84632960
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 84632962}
+  - component: {fileID: 84632961}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &84632961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 84632960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ba8d64811639234c9a89372fdbf82b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &84632962
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 84632960}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -34.844486, y: -31.626266, z: -74.2023}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &184504812
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1764,6 +1808,10 @@ PrefabInstance:
     - target: {fileID: 5097492522694579747, guid: bbf1c27fde427594cba373dbeb0f8f36, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5097492522694579748, guid: bbf1c27fde427594cba373dbeb0f8f36, type: 3}
+      propertyPath: raycastLayers.m_Bits
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5097492522694579768, guid: bbf1c27fde427594cba373dbeb0f8f36, type: 3}
       propertyPath: m_Drag

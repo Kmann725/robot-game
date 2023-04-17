@@ -174,24 +174,19 @@ public class PlayerController : Damageable, IPlayerSubject
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("normal grenade pickup"))
-        {
+        if (other.gameObject.CompareTag("normal grenade pickup") || other.gameObject.CompareTag("emp grenade pickup") || other.gameObject.CompareTag("gravity well grenade pickup"))
+            GameController.Instance.GrabGrenade(other.gameObject);
+    }
+
+    public void GrabGrenade(string tag)
+    {
+        if (tag.Equals("normal grenade pickup"))
             normalGrenadeCount++;
-            Destroy(other.gameObject);
-            NotifyPlayerObservers();
-        }
-        else if (other.gameObject.CompareTag("emp grenade pickup"))
-        {
+        else if (tag.Equals("emp grenade pickup"))
             empGrenadeCount++;
-            Destroy(other.gameObject);
-            NotifyPlayerObservers();
-        }
-        else if (other.gameObject.CompareTag("gravity well grenade pickup"))
-        {
+        else if (tag.Equals("gravity well grenade pickup"))
             gravityWellGrenadeCount++;
-            Destroy(other.gameObject);
-            NotifyPlayerObservers();
-        }
+        NotifyPlayerObservers();
     }
 
     public override void TakeDamage(int damage)
