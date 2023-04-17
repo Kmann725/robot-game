@@ -38,6 +38,8 @@ public abstract class Enemy : Damageable
 
     public LayerMask raycastLayers;
 
+    public ParticleSystem muzzleFlash;
+
     protected override void Awake()
     {
         base.Awake();
@@ -94,8 +96,10 @@ public abstract class Enemy : Damageable
     public virtual void Attack()
     {
         enemyAnimator.Play("Shoot_SingleShot_AR");
-        GameObject bullet = Instantiate(bulletPrefab, transform.position + new Vector3(0,1.5f,0), transform.rotation);
-        bullet.GetComponent<Rigidbody>().velocity = transform.forward * 10;
+        muzzleFlash.Play();
+        GameObject bullet = Instantiate(bulletPrefab, muzzleFlash.transform.position, transform.rotation);
+        Vector3 direction = new Vector3(target.transform.position.x - muzzleFlash.transform.position.x, 0, target.transform.position.z - muzzleFlash.transform.position.z).normalized;
+        bullet.GetComponent<Rigidbody>().velocity = direction * 15;
         bullet.GetComponent<Bullet>().damage = attackDamage;
     }
 
