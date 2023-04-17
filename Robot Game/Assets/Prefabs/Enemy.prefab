@@ -536,7 +536,7 @@ MonoBehaviour:
   walkSpeed: 2
   runSpeed: 5
   target: {fileID: 0}
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 212625353166046490, guid: 6eb586db77259b44e94fe0aea09e0ac5, type: 3}
   navMeshAgent: {fileID: 0}
   enemyAnimator: {fileID: 0}
   raycastLayers:

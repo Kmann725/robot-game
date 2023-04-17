@@ -94,9 +94,8 @@ public class Enemy : Damageable
     public void Attack()
     {
         enemyAnimator.Play("Shoot_SingleShot_AR");
-        //GameObject bullet = Instantiate(bulletPrefab, transform.position + transform.forward, transform.rotation);
-        //bullet.GetComponent<Rigidbody>().AddForce(transform.forward * 20f, ForceMode.Impulse);
-        //Destroy(bullet, 2f);
+        GameObject bullet = Instantiate(bulletPrefab, transform.position + new Vector3(0,1.5f,0), transform.rotation);
+        bullet.GetComponent<Rigidbody>().velocity = transform.forward * 10;
     }
 
     public void StopAttackCoroutine()
