@@ -21,6 +21,15 @@ public class GrenadeMaker : MonoBehaviour
     {
         switch (type)
         {
+            case 0:
+                if(currentGrenade != null)
+                {
+                    Destroy(currentGrenade.gameObject);
+                    pm.carryingNormal = false;
+                    pm.carryingEMP = false;
+                    pm.carryingGravity = false;
+                }
+                break;
             case 1:
                 if (currentGrenade == null)
                 {

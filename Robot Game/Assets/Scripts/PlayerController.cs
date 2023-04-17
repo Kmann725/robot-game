@@ -31,8 +31,8 @@ public class PlayerController : Damageable, IPlayerSubject
     public bool carryingEMP = false;
     public bool carryingGravity = false;
 
-    float inputX;
-    float inputZ;
+    public Transform groundCheck;
+    public LayerMask groundLayer;
 
     public static PlayerController Instance;
 
@@ -59,36 +59,13 @@ public class PlayerController : Damageable, IPlayerSubject
     // Update is called once per frame
     void Update()
     {
-        inputX = Input.GetAxis("Horizontal");
-        inputZ = Input.GetAxis("Vertical");
 
         MouseLook();
-
-        if (Input.GetKeyDown(KeyCode.Space) && canJump)
-        {
-            rb.AddForce(Vector3.up * jump);
-        }
 
         if (Input.GetKeyDown(KeyCode.R))
         {
             Time.timeScale = 1;
             SceneManager.LoadScene(0);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha1) && normalGrenadeCount > 0 && !carryingNormal)
-        {
-            gm.GenerateGrenade(1);
-            carryingNormal = true;
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2) && empGrenadeCount > 0 && !carryingEMP)
-        {
-            gm.GenerateGrenade(2);
-            carryingEMP = true;
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3) && gravityWellGrenadeCount > 0 && !carryingGravity)
-        {
-            gm.GenerateGrenade(3);
-            carryingGravity = true;
         }
 
         if (!carryingGravity && !carryingNormal && !carryingEMP)
@@ -108,11 +85,59 @@ public class PlayerController : Damageable, IPlayerSubject
             TakeDamage(10);
     }
 
-    private void FixedUpdate()
+    public void HoldGrenade(int type)
+    {
+        if(type == 1)
+        {
+            if(carryingNormal)
+            {
+                gm.GenerateGrenade(0);
+            }
+            else if(normalGrenadeCount > 0)
+            {
+                gm.GenerateGrenade(1);
+                carryingNormal = true;
+            }
+        }
+        else if(type == 2)
+        {
+            if (carryingEMP)
+            {
+                gm.GenerateGrenade(0);
+            }
+            else if (empGrenadeCount > 0)
+            {
+                gm.GenerateGrenade(2);
+                carryingEMP = true;
+            }
+        }
+        else if(type == 3)
+        {
+            if (carryingGravity)
+            {
+                gm.GenerateGrenade(0);
+            }
+            else if (gravityWellGrenadeCount > 0)
+            {
+                gm.GenerateGrenade(3);
+                carryingGravity = true;
+            }
+        }
+    }
+
+    public void MovePlayer(float inputX, float inputZ)
     {
         Vector3 movement = (transform.right * inputX + transform.forward * inputZ) * speed;
 
         rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z);
+    }
+
+    public void JumpPlayer()
+    {
+        if(IsGrounded())
+        {
+            rb.AddForce(Vector3.up * jump, ForceMode.Impulse);
+        }
     }
 
     private void MouseLook()
@@ -154,22 +179,6 @@ public class PlayerController : Damageable, IPlayerSubject
 
         //At the beginning of the Shoot() method, play the particle effect
         muzzleFlash.Play();
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("ground"))
-        {
-            canJump = true;
-        }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("ground"))
-        {
-            canJump = false;
-        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -220,5 +229,15 @@ public class PlayerController : Damageable, IPlayerSubject
         playerDataForObservers.NormalGrenadeCount = normalGrenadeCount;
         playerDataForObservers.EMPGrenadeCount = empGrenadeCount;
         playerDataForObservers.GravityWellGrenadeCount = gravityWellGrenadeCount;
+    }
+
+    private bool IsGrounded()
+    {
+        if (Physics.CheckSphere(groundCheck.transform.position, .1f, groundLayer))
+        {
+            // If the ray hits an object in the ground layer, the player is considered grounded
+            return true;
+        }
+        return false;
     }
 }
