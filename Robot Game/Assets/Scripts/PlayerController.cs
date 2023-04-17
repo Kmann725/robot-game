@@ -15,7 +15,9 @@ public class PlayerController : Damageable, IPlayerSubject
 
     public GameObject playerCamera;
     public GameObject pistol;
+    public GameObject bullets;
     public GrenadeMaker gm;
+    public GameObject bulletSpawn;
     Camera cam;
 
     //Weapon variables
@@ -153,29 +155,10 @@ public class PlayerController : Damageable, IPlayerSubject
 
     void Shoot()
     {
-        RaycastHit hitInfo;
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hitInfo, range))
-        {
-            //Debug.Log(hitInfo.transform.gameObject.name);
+        Quaternion bulletRot = bulletSpawn.transform.rotation;
+        bulletRot.eulerAngles = new Vector3(bulletRot.eulerAngles.x - 0.5f, bulletRot.eulerAngles.y - 1.5f, bulletRot.eulerAngles.z);
 
-
-            //Get the Target script off the hit object
-            Enemy target =
-            hitInfo.transform.gameObject.GetComponent<Enemy>();
-            //If a target script was found, make the target take damage
-            if (target != null)
-            {
-                //Instantiate(bullet, transformPos.transform);
-                //target.SpawnBullet(hitInfo.point, cam.transform.rotation);
-                target.TakeDamage(gunDamage);
-            }
-
-            //If the shot hits a Rigidbody, apply a force
-            if (hitInfo.rigidbody != null)
-            {
-                hitInfo.rigidbody.AddForce(cam.transform.TransformDirection(Vector3.forward) * hitForce, ForceMode.Impulse);
-            }
-        }
+        Instantiate(bullets, bulletSpawn.transform.position, bulletRot);
 
         //At the beginning of the Shoot() method, play the particle effect
         muzzleFlash.Play();

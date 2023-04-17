@@ -1074,6 +1074,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1270985157 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2310112504511574548, guid: 8c2618ffc597a4b4da3565ecced02ea3, type: 3}
+  m_PrefabInstance: {fileID: 2310112504409163806}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1549096229
 GameObject:
   m_ObjectHideFlags: 0
@@ -1735,6 +1740,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2310112505176358252, guid: 8c2618ffc597a4b4da3565ecced02ea3, type: 3}
+      propertyPath: bullets
+      value: 
+      objectReference: {fileID: 212625353166046490, guid: 2ad57c7105bf2004b85fd3b34434c459, type: 3}
+    - target: {fileID: 2310112505176358252, guid: 8c2618ffc597a4b4da3565ecced02ea3, type: 3}
+      propertyPath: bulletSpawn
+      value: 
+      objectReference: {fileID: 1270985157}
     - target: {fileID: 2310112505176358255, guid: 8c2618ffc597a4b4da3565ecced02ea3, type: 3}
       propertyPath: m_Name
       value: Player
