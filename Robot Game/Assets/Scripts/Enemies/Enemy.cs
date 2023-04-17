@@ -10,7 +10,7 @@ public class Enemy : Damageable
     public float attackRadius;
 
     public float attackRate;
-    public float attackDamage;
+    public int attackDamage = 10;
 
     public float walkSpeed;
     public float runSpeed;
@@ -96,6 +96,7 @@ public class Enemy : Damageable
         enemyAnimator.Play("Shoot_SingleShot_AR");
         GameObject bullet = Instantiate(bulletPrefab, transform.position + new Vector3(0,1.5f,0), transform.rotation);
         bullet.GetComponent<Rigidbody>().velocity = transform.forward * 10;
+        bullet.GetComponent<Bullet>().damage = attackDamage;
     }
 
     public void StopAttackCoroutine()
