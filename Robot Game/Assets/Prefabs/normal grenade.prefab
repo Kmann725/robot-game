@@ -114,9 +114,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwStrength: 1000
   explosionRadius: 5
-  explosionStrength: 500
+  explosionStrength: 700
   carried: 1
   thrown: 0
+  exploded: 0
   explosionEffect: {fileID: 771140585929969710, guid: f7f2cfedc0005e54db167c297aa7a80f, type: 3}
   soundEffect: {fileID: 8300000, guid: eda729605cf526747aeea407981d9366, type: 3}
   radiusVisual: {fileID: 8076968386871286422, guid: 0fd49068064df124c9d629ba5cc1086f, type: 3}
