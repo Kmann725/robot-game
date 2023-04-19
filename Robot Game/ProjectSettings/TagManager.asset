@@ -17,6 +17,7 @@ TagManager:
   - physics object
   - red door
   - blue door
+  - ExitTrigger
   layers:
   - Default
   - TransparentFX
