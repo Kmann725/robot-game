@@ -4541,6 +4541,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.195
       objectReference: {fileID: 0}
+    - target: {fileID: 2310112505176358249, guid: 8c2618ffc597a4b4da3565ecced02ea3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2310112505176358249, guid: 8c2618ffc597a4b4da3565ecced02ea3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2310112505176358249, guid: 8c2618ffc597a4b4da3565ecced02ea3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: 2310112505176358252, guid: 8c2618ffc597a4b4da3565ecced02ea3, type: 3}
       propertyPath: jump
       value: 5
