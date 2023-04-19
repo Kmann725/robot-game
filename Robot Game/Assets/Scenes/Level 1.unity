@@ -751,6 +751,7 @@ GameObject:
   - component: {fileID: 193927045}
   - component: {fileID: 193927044}
   - component: {fileID: 193927043}
+  - component: {fileID: 193927047}
   m_Layer: 0
   m_Name: ExitTrigger
   m_TagString: ExitTrigger
@@ -836,6 +837,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &193927047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193927042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baaea9c5c8e12084a9bfda93c392b933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &195877404
 GameObject:
   m_ObjectHideFlags: 0
