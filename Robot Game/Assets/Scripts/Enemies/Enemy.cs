@@ -128,7 +128,7 @@ public abstract class Enemy : Damageable
             if (hit.collider.CompareTag("Player"))
                 return true;
         }
-        if (Vector3.Distance(target.transform.position, transform.position) > chaseRadius)
+        if (Vector3.Distance(target.transform.position, transform.position) > chaseRadius + 5)
             target = null;
         return false;
     }
