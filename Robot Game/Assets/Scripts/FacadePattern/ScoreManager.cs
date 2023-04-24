@@ -35,4 +35,16 @@ public class ScoreManager : Singleton<ScoreManager>
         if(GameController.Instance.level > 1)
             playerRestarted = true;
     }
+
+    public int GetStarsEarned()
+    {
+        int stars = 0;
+        if (score < 10)
+            stars++;
+        if (!lostHealth)
+            stars++;
+        if (!playerRestarted)
+            stars++;
+        return stars;
+    }
 }

@@ -15,6 +15,7 @@ public class GameController : Singleton<GameController>
     PlayerController playerController;
     ScoreManager scoreManager;
     PauseMenuBehavior pauseMenu;
+    WinMenuBehavior winMenu;
 
     float inputX;
     float inputZ;
@@ -36,6 +37,8 @@ public class GameController : Singleton<GameController>
         playerController = FindObjectOfType<PlayerController>();
         scoreManager = ScoreManager.Instance;
         pauseMenu = PauseMenuBehavior.Instance;
+        winMenu = WinMenuBehavior.Instance;
+
         TextBox = GameObject.FindGameObjectWithTag("textbox");
         text = TextBox.GetComponentInChildren<TextMeshProUGUI>();
     }
@@ -66,7 +69,7 @@ public class GameController : Singleton<GameController>
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !gameLost)
+        if (Input.GetKeyDown(KeyCode.Escape) && !gameLost && level < 4)
         {
             if (Time.timeScale == 1)
                 pauseMenu.gameObject.SetActive(true);
@@ -123,5 +126,10 @@ public class GameController : Singleton<GameController>
     {
         gameLost = true;
         pauseMenu.gameObject.SetActive(true);
+    }
+
+    public void GameWon()
+    {
+        winMenu.gameObject.SetActive(true);
     }
 }
