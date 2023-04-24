@@ -79,7 +79,7 @@ public class TutorialScript : MonoBehaviour
 
         if (enemyNotDead == true)
         {
-            if (TutorialEnemy.GetComponent<Enemy>().dead == true)
+            if (TutorialEnemy.GetComponent<Enemy>().currentHealth <= 0)
             {
                 text.enabled = true;
                 enemyNotDead = false;
