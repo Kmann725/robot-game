@@ -21,6 +21,7 @@ TagManager:
   - GrenadeTrigger
   - TutorialManager
   - ButtonTrigger
+  - green door
   layers:
   - Default
   - TransparentFX

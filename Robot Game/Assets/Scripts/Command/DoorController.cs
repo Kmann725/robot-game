@@ -6,10 +6,12 @@ public class DoorController : MonoBehaviour
 {
     public GameObject redButton;
     public GameObject blueButton;
+    public GameObject greenButton;
 
     private GameObject player;
     private Command openRedDoor;
     private Command openBlueDoor;
+    private Command openGreenDoor;
 
     private void Start()
     {
@@ -17,6 +19,7 @@ public class DoorController : MonoBehaviour
 
         openRedDoor = new OpenRedDoor();
         openBlueDoor = new OpenBlueDoor();
+        openGreenDoor = new OpenGreenDoor();
     }
 
     private void Update()
@@ -35,6 +38,10 @@ public class DoorController : MonoBehaviour
                 if (hit.collider.gameObject == blueButton)
                 {
                     openBlueDoor.Execute();
+                }
+                if (hit.collider.gameObject == greenButton)
+                {
+                    openGreenDoor.Execute();
                 }
             }
         }

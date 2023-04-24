@@ -5,6 +5,7 @@ using TMPro;
 
 public class TutorialScript : MonoBehaviour
 {
+    public GameObject TextBox;
     public TMP_Text text;
     public GameObject TutorialEnemy;
     public int index;
@@ -14,10 +15,12 @@ public class TutorialScript : MonoBehaviour
     public bool enemyNotDead = true;
     public bool grenadeBool = false;
     public bool buttonBool = false;
+    public static bool IsTutorial = false;
     // Start is called before the first frame update
     void Start()
     {
         pauseGame();
+        TextBox.SetActive(true);
         text.text = "Robots have taken over humanity! As a survivor of the apocalypse you are determined save mankind. You have armed yourself with the first weapon you could find and march your way to find the source of the robot threat. \nPress F to continue.";
         TutorialEnemy = GameObject.Find("Tutorial Enemy");
     }
@@ -48,6 +51,7 @@ public class TutorialScript : MonoBehaviour
                     grenadeBool = false;
                     resumeGame();
                     text.enabled = false;
+                    TextBox.SetActive(false);
                 }
             }
             if (buttonBool == true)
@@ -56,6 +60,7 @@ public class TutorialScript : MonoBehaviour
                 if (index == 10)
                 {
                     resumeGame();
+                    TextBox.SetActive(false);
                     text.enabled = false;
                 }
             }
@@ -72,6 +77,7 @@ public class TutorialScript : MonoBehaviour
             gunBool = true;
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
+                TextBox.SetActive(false);
                 text.enabled = false;
                 gunBool = false;
             }
@@ -81,6 +87,7 @@ public class TutorialScript : MonoBehaviour
         {
             if (TutorialEnemy.GetComponent<Enemy>().currentHealth <= 0)
             {
+                TextBox.SetActive(true);
                 text.enabled = true;
                 enemyNotDead = false;
                 TutorialContinue();
@@ -96,6 +103,7 @@ public class TutorialScript : MonoBehaviour
     public void ButtonTutorial()
     {
         buttonBool = true;
+        TextBox.SetActive(true);
         text.enabled = true;
         TutorialContinue();
         pauseGame();
@@ -116,5 +124,9 @@ public class TutorialScript : MonoBehaviour
             text.text = sentences[index];
 
         }
+    }
+    private void OnDestroy()
+    {
+        IsTutorial = false;
     }
 }
