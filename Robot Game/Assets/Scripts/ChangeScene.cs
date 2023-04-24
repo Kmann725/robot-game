@@ -29,7 +29,7 @@ public class ChangeScene : MonoBehaviour
             }
             else if (levelName == "Level 3")
             {
-                
+                SceneManager.LoadScene("GameEnd");
             }
         }
     }
