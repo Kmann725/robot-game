@@ -1489,7 +1489,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2.86, y: 2.22, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &328390195
 MeshRenderer:
@@ -2004,6 +2004,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TextBox: {fileID: 0}
   level: 1
+  gameLost: 0
 --- !u!4 &549821325
 Transform:
   m_ObjectHideFlags: 0
@@ -2489,6 +2490,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2205893723324926929, guid: 622dccddcaa77e04ebdae4ffc229f9c9, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2749729820133354620, guid: 622dccddcaa77e04ebdae4ffc229f9c9, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2749729820133354620, guid: 622dccddcaa77e04ebdae4ffc229f9c9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2749729820133354620, guid: 622dccddcaa77e04ebdae4ffc229f9c9, type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4279677687070362586, guid: 622dccddcaa77e04ebdae4ffc229f9c9, type: 3}
@@ -7203,7 +7216,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2.86, y: 2.22, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1932384890
 MeshRenderer:
@@ -7700,7 +7713,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2.86, y: 2.22, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &2075136799
 MeshRenderer:
