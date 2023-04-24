@@ -13,9 +13,14 @@ public class DoorController : MonoBehaviour
     private Command openBlueDoor;
     private Command openGreenDoor;
 
+    private AudioSource src;
+
+    public AudioClip doorOpen;
+
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        src = GetComponent<AudioSource>();
 
         openRedDoor = new OpenRedDoor();
         openBlueDoor = new OpenBlueDoor();
@@ -33,14 +38,17 @@ public class DoorController : MonoBehaviour
             {
                 if (hit.collider.gameObject == redButton)
                 {
+                    src.PlayOneShot(doorOpen);
                     openRedDoor.Execute();
                 }
                 if (hit.collider.gameObject == blueButton)
                 {
+                    src.PlayOneShot(doorOpen);
                     openBlueDoor.Execute();
                 }
                 if (hit.collider.gameObject == greenButton)
                 {
+                    src.PlayOneShot(doorOpen);
                     openGreenDoor.Execute();
                 }
             }
