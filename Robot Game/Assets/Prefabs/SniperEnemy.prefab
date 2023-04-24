@@ -1643,7 +1643,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   muzzleFlash: {fileID: 8872316375771371828}
-  shoot: {fileID: 0}
+  shoot: {fileID: 8300000, guid: 443c53fe787328d46ac028a71e95f93b, type: 3}
   lineRenderer: {fileID: 0}
 --- !u!135 &8872316374704134202
 SphereCollider:
