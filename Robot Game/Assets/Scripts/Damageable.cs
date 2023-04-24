@@ -7,6 +7,8 @@ public class Damageable : MonoBehaviour
     public int maxHealth;
     public int currentHealth;
 
+    protected bool god = false;
+
     protected virtual void Awake()
     {
         currentHealth = maxHealth;
@@ -14,7 +16,8 @@ public class Damageable : MonoBehaviour
 
     public virtual void TakeDamage(int damage)
     {
-        currentHealth -= damage;
+        if(!god)
+            currentHealth -= damage;
         if (currentHealth > maxHealth)
             currentHealth = maxHealth;
         if (currentHealth <= 0 && !gameObject.CompareTag("Player"))
