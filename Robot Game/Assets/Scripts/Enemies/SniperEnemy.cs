@@ -22,6 +22,17 @@ public class SniperEnemy : Enemy
         }
     }
 
+    protected override IEnumerator AttackCoroutine()
+    {
+        while(target != null)
+        {
+            canAttack = false;
+            yield return new WaitForSeconds(attackRate);
+            Attack();
+            canAttack = true;
+        }
+    }
+
     public override void Attack()
     {
         enemyAnimator.Play("Shoot_SingleShot_AR");
