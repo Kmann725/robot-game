@@ -2225,10 +2225,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8537505397145997087, guid: 376bf71570534154485028ef967148b2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -1012312936996412864, guid: 376bf71570534154485028ef967148b2, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 180463096607490272, guid: 376bf71570534154485028ef967148b2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b08362937163d6b45ba5863b31ee450f, type: 2}
+    - target: {fileID: 180463096607490272, guid: 376bf71570534154485028ef967148b2, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4dbba1937cd86524ab2a6ef301ecb287, type: 2}
     - target: {fileID: 919132149155446097, guid: 376bf71570534154485028ef967148b2, type: 3}
       propertyPath: m_Name
       value: wall_FBX (1)
@@ -2735,6 +2747,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 180463096607490272, guid: 376bf71570534154485028ef967148b2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b08362937163d6b45ba5863b31ee450f, type: 2}
+    - target: {fileID: 180463096607490272, guid: 376bf71570534154485028ef967148b2, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4dbba1937cd86524ab2a6ef301ecb287, type: 2}
     - target: {fileID: 919132149155446097, guid: 376bf71570534154485028ef967148b2, type: 3}
       propertyPath: m_Name
       value: wall_FBX (2)
@@ -6428,6 +6448,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 180463096607490272, guid: 376bf71570534154485028ef967148b2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b08362937163d6b45ba5863b31ee450f, type: 2}
+    - target: {fileID: 180463096607490272, guid: 376bf71570534154485028ef967148b2, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4dbba1937cd86524ab2a6ef301ecb287, type: 2}
     - target: {fileID: 919132149155446097, guid: 376bf71570534154485028ef967148b2, type: 3}
       propertyPath: m_Name
       value: wall_FBX
