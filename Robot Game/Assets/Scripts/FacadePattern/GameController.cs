@@ -55,7 +55,7 @@ public class GameController : Singleton<GameController>
 
     IEnumerator InitialText()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
         canDestroyText = true;
     }
 
