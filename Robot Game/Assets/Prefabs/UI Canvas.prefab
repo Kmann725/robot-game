@@ -683,7 +683,6 @@ GameObject:
   - component: {fileID: 8289640674866423778}
   - component: {fileID: 6808358465653854347}
   - component: {fileID: 7943242827681746582}
-  - component: {fileID: 8921393694293326262}
   m_Layer: 5
   m_Name: Gravity Button
   m_TagString: Untagged
@@ -808,18 +807,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &8921393694293326262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 77766500140441185}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70a334cda6f211647b83552e0ca174ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1041429886212158013
 GameObject:
   m_ObjectHideFlags: 0
@@ -983,7 +970,6 @@ GameObject:
   - component: {fileID: 7548439306754197895}
   - component: {fileID: 1103764221665988599}
   - component: {fileID: 5729008625939926203}
-  - component: {fileID: 7297300271787875527}
   m_Layer: 5
   m_Name: EMP Button
   m_TagString: Untagged
@@ -1108,18 +1094,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &7297300271787875527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2566601206170308707}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70a334cda6f211647b83552e0ca174ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4632622823174458505
 GameObject:
   m_ObjectHideFlags: 0
@@ -1600,7 +1574,6 @@ GameObject:
   - component: {fileID: 2612790507757746216}
   - component: {fileID: 7699485404951270698}
   - component: {fileID: 1504761787351023251}
-  - component: {fileID: 4920889613260348206}
   m_Layer: 5
   m_Name: Frag Button
   m_TagString: Untagged
@@ -1725,18 +1698,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &4920889613260348206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8171644259100327657}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70a334cda6f211647b83552e0ca174ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8267511539325839736
 GameObject:
   m_ObjectHideFlags: 0
