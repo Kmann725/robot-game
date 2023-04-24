@@ -20,7 +20,7 @@ public class Damageable : MonoBehaviour
             currentHealth -= damage;
         if (currentHealth > maxHealth)
             currentHealth = maxHealth;
-        if (currentHealth <= 0 && !gameObject.CompareTag("Player"))
+        if (currentHealth <= 0)
             Destruction();
     }
 

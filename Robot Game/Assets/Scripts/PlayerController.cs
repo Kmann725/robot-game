@@ -247,6 +247,11 @@ public class PlayerController : Damageable, IPlayerSubject
         playerDataForObservers.GravityWellGrenadeCount = gravityWellGrenadeCount;
     }
 
+    protected override void Destruction()
+    {
+        // HANDLE PLAYER DEATH HERE
+    }
+
     private bool IsGrounded()
     {
         if (Physics.CheckSphere(groundCheck.transform.position, .1f, groundLayer))

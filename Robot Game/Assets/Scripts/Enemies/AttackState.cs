@@ -15,6 +15,8 @@ public class AttackState : IEnemyState
     {
         enemy.enemyAnimator.Play("Idle_Shoot_Ar");
         enemy.StartAttackCoroutine();
+        if (enemy.TryGetComponent(out SniperEnemy sniper))
+            sniper.lineRenderer.enabled = true;
     }
 
     public void UpdateState()
@@ -33,5 +35,7 @@ public class AttackState : IEnemyState
     public void ExitState()
     {
         enemy.StopAttackCoroutine();
+        if (enemy.TryGetComponent(out SniperEnemy sniper))
+            sniper.lineRenderer.enabled = false;
     }
 }
