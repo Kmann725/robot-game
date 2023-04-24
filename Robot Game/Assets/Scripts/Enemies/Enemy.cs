@@ -44,7 +44,6 @@ public abstract class Enemy : Damageable
 
     private AudioSource src;
 
-    public bool dead;
 
     protected override void Awake()
     {
@@ -143,7 +142,6 @@ public abstract class Enemy : Damageable
 
     protected override void Destruction()
     {
-        dead = true;
         SetState(deadState);
         GameController.Instance.EnemyKilled();
     }
