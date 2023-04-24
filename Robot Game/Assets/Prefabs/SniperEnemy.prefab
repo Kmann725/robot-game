@@ -1643,6 +1643,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   muzzleFlash: {fileID: 8872316375771371828}
+  shoot: {fileID: 0}
   lineRenderer: {fileID: 0}
 --- !u!135 &8872316374704134202
 SphereCollider:
@@ -1655,7 +1656,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 20
+  m_Radius: 30
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &8872316374704134203
 CapsuleCollider:
