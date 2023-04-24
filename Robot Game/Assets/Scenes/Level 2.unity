@@ -10065,6 +10065,18 @@ PrefabInstance:
       propertyPath: speed
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 2310112505176358252, guid: 8c2618ffc597a4b4da3565ecced02ea3, type: 3}
+      propertyPath: pistol
+      value: 
+      objectReference: {fileID: 1958843881}
+    - target: {fileID: 2310112505176358252, guid: 8c2618ffc597a4b4da3565ecced02ea3, type: 3}
+      propertyPath: bullets
+      value: 
+      objectReference: {fileID: 212625353166046490, guid: 2ad57c7105bf2004b85fd3b34434c459, type: 3}
+    - target: {fileID: 2310112505176358252, guid: 8c2618ffc597a4b4da3565ecced02ea3, type: 3}
+      propertyPath: bulletSpawn
+      value: 
+      objectReference: {fileID: 1958843880}
     - target: {fileID: 4879185006939593827, guid: 8c2618ffc597a4b4da3565ecced02ea3, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -10115,6 +10127,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c2618ffc597a4b4da3565ecced02ea3, type: 3}
+--- !u!1 &1958843880 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2310112504511574548, guid: 8c2618ffc597a4b4da3565ecced02ea3, type: 3}
+  m_PrefabInstance: {fileID: 1958843879}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1958843881 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2310112505202220232, guid: 8c2618ffc597a4b4da3565ecced02ea3, type: 3}
+  m_PrefabInstance: {fileID: 1958843879}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1979661341
 GameObject:
   m_ObjectHideFlags: 0
