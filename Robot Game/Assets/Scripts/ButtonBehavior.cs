@@ -9,4 +9,9 @@ public class ButtonBehavior : MonoBehaviour
     {
         SceneManager.LoadScene("Level 1");
     }
+
+    public void Tutorial()
+    {
+        SceneManager.LoadScene("Tutorial");
+    }
 }

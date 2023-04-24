@@ -18,6 +18,9 @@ TagManager:
   - red door
   - blue door
   - ExitTrigger
+  - GrenadeTrigger
+  - TutorialManager
+  - ButtonTrigger
   layers:
   - Default
   - TransparentFX

@@ -46,6 +46,8 @@ public class PlayerController : Damageable, IPlayerSubject
 
     private PlayerData playerDataForObservers = new PlayerData();
 
+    public TutorialScript tutorialscript;
+
     protected override void Awake()
     {
         base.Awake();
@@ -60,6 +62,10 @@ public class PlayerController : Damageable, IPlayerSubject
         cam = GetComponentInChildren<Camera>();
         pistol = cam.transform.Find("Pistol").gameObject;
 
+        if (SceneManager.GetActiveScene().name == "Tutorial")
+        {
+            tutorialscript = GameObject.FindGameObjectWithTag("TutorialManager").GetComponent<TutorialScript>();
+        }
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -200,6 +206,16 @@ public class PlayerController : Damageable, IPlayerSubject
     {
         if (other.gameObject.CompareTag("normal grenade pickup") || other.gameObject.CompareTag("emp grenade pickup") || other.gameObject.CompareTag("gravity well grenade pickup"))
             GameController.Instance.GrabGrenade(other.gameObject);
+        else if (other.gameObject.CompareTag("GrenadeTrigger"))
+        {
+            tutorialscript.GrenadeTutorial();
+            Destroy(other);
+        }
+        else if (other.gameObject.CompareTag("ButtonTrigger"))
+        {
+            tutorialscript.ButtonTutorial();
+            Destroy(other);
+        }
     }
 
     public void GrabGrenade(string tag)
