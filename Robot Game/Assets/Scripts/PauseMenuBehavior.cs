@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PauseMenuBehavior : Singleton<PauseMenuBehavior>
 {
+    public TextMeshProUGUI textbox;
+    public GameObject resumeButton;
     private void Start()
     {
         gameObject.SetActive(false);
@@ -15,6 +18,16 @@ public class PauseMenuBehavior : Singleton<PauseMenuBehavior>
         Time.timeScale = 0;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+        if (GameController.Instance.gameLost)
+        {
+            textbox.text = "You Lost!";
+            resumeButton.SetActive(false);
+        }
+        else
+        {
+            textbox.text = "Game Paused";
+            resumeButton.SetActive(true);
+        }
     }
 
     private void OnDisable()

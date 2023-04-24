@@ -29,6 +29,8 @@ public class GameController : Singleton<GameController>
 
     public int level = 0;
 
+    public bool gameLost = false;
+
     private void Awake()
     {
         playerController = FindObjectOfType<PlayerController>();
@@ -48,6 +50,8 @@ public class GameController : Singleton<GameController>
                 text.text = "It looks like the elevator took your grenades! I'm sure you can scavenge for more, we NEED to save humanity!\n\nMove to Continue.";
             else if (level == 3)
                 text.text = "You're Almost There! The Button to Deactivate the Robots is on this Floor!\n\nMove to Continue.";
+            else if (level == 4)
+                text.text = "You did it! The Robots are Deactivating! You Saved the World!";
             TextBox.SetActive(true);
             StartCoroutine(InitialText());
         }
@@ -62,7 +66,7 @@ public class GameController : Singleton<GameController>
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !gameLost)
         {
             if (Time.timeScale == 1)
                 pauseMenu.gameObject.SetActive(true);
@@ -93,6 +97,7 @@ public class GameController : Singleton<GameController>
 
     private void FixedUpdate()
     {
+        if (level > 3) return;
         if ((inputX > 0 || inputZ > 0) && !TutorialScript.IsTutorial && canDestroyText)
             TextBox.SetActive(false);
         playerController.MovePlayer(inputX, inputZ);
@@ -112,5 +117,11 @@ public class GameController : Singleton<GameController>
     public void EnemyKilled()
     {
         scoreManager.IncrementScore(1);
+    }
+
+    public void GameLost()
+    {
+        gameLost = true;
+        pauseMenu.gameObject.SetActive(true);
     }
 }

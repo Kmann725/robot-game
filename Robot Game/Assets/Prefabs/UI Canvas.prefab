@@ -1496,6 +1496,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0913a573e946cb459b05fb46c3087ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textbox: {fileID: 3399635818754405666}
+  resumeButton: {fileID: 2581735327178548151}
 --- !u!1 &4632622823174458505
 GameObject:
   m_ObjectHideFlags: 0

@@ -267,7 +267,7 @@ public class PlayerController : Damageable, IPlayerSubject
     protected override void Destruction()
     {
         src.PlayOneShot(playerDeath);
-        Time.timeScale = 0;
+        GameController.Instance.GameLost();
     }
 
     private bool IsGrounded()
