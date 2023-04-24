@@ -49,7 +49,7 @@ public abstract class Grenade : MonoBehaviour
             gm.currentGrenade = null;
 
             rb.AddForce(mainCamera.transform.forward * throwStrength);
-            rb.AddForce(mainCamera.transform.up * 350f);
+            rb.AddForce(mainCamera.transform.up * 100f);
         }
 
         if (carried)
