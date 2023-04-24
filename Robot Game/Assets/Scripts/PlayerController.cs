@@ -155,12 +155,13 @@ public class PlayerController : Damageable, IPlayerSubject
 
     void Shoot()
     {
-        /*
+        
         Quaternion bulletRot = bulletSpawn.transform.rotation;
         bulletRot.eulerAngles = new Vector3(bulletRot.eulerAngles.x - 0.5f, bulletRot.eulerAngles.y - 1.5f, bulletRot.eulerAngles.z);
 
-        Instantiate(bullets, bulletSpawn.transform.position, bulletRot);*/
+        Instantiate(bullets, bulletSpawn.transform.position, bulletRot);
 
+        /*
         RaycastHit hitInfo;
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hitInfo, range))
         {
@@ -183,7 +184,7 @@ public class PlayerController : Damageable, IPlayerSubject
             {
                 hitInfo.rigidbody.AddForce(cam.transform.TransformDirection(Vector3.forward) * hitForce, ForceMode.Impulse);
             }
-        }
+        } */
 
         //At the beginning of the Shoot() method, play the particle effect
         muzzleFlash.Play();
