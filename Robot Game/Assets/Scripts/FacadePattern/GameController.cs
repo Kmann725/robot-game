@@ -7,6 +7,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameController : Singleton<GameController>
@@ -19,20 +20,29 @@ public class GameController : Singleton<GameController>
 
     bool shouldJump;
 
+    public GameObject TextBox;
+
+    private TextMeshProUGUI text;
+
     private void Awake()
     {
         playerController = FindObjectOfType<PlayerController>();
         scoreManager = ScoreManager.Instance;
+        TextBox = GameObject.FindGameObjectWithTag("textbox");
+        text = TextBox.GetComponentInChildren<TextMeshProUGUI>();
     }
     // Start is called before the first frame update
     void Start()
     {
-        
+        text.text = "Welcome to 546 Motor Industries Soldier. Unfortunately, the robots here have gotten out of control. Save Humanity and Disable them all!\n\nMove to Continue.";
+        TextBox.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Time.timeScale == 0)
+            return;
         inputX = Input.GetAxis("Horizontal");
         inputZ = Input.GetAxis("Vertical");
         if(Input.GetKeyDown(KeyCode.Space))
@@ -55,6 +65,8 @@ public class GameController : Singleton<GameController>
 
     private void FixedUpdate()
     {
+        if (inputX > 0 || inputZ > 0)
+            TextBox.SetActive(false);
         playerController.MovePlayer(inputX, inputZ);
         if(shouldJump)
         {

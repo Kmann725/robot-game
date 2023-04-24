@@ -22,6 +22,7 @@ TagManager:
   - TutorialManager
   - ButtonTrigger
   - green door
+  - textbox
   layers:
   - Default
   - TransparentFX

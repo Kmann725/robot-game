@@ -407,6 +407,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: normal grenade pickup (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6091162438047566139, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.06000042
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091162438047566139, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.52
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
 --- !u!4 &66224074 stripped
@@ -870,6 +878,7 @@ GameObject:
   - component: {fileID: 195877406}
   - component: {fileID: 195877405}
   - component: {fileID: 195877409}
+  - component: {fileID: 195877410}
   m_Layer: 0
   m_Name: Blue Door
   m_TagString: blue door
@@ -967,6 +976,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7623e7c478400eb41a917bf8514fc915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!208 &195877410
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195877404}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &215100710
 GameObject:
   m_ObjectHideFlags: 0
@@ -1759,6 +1784,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: normal grenade pickup (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 6091162438047566139, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091162438047566139, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.06000042
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091162438047566139, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.52
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
 --- !u!4 &442942718 stripped
@@ -1897,6 +1934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ba8d64811639234c9a89372fdbf82b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TextBox: {fileID: 0}
 --- !u!4 &549821325
 Transform:
   m_ObjectHideFlags: 0
@@ -2602,6 +2640,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: normal grenade pickup (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6091162438047566139, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091162438047566139, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.06000042
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091162438047566139, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.52
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
 --- !u!4 &727498863 stripped
@@ -2673,6 +2723,18 @@ PrefabInstance:
     - target: {fileID: 3617642552065589668, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
       propertyPath: m_Name
       value: normal grenade pickup (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091162438047566139, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091162438047566139, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.06000042
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091162438047566139, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.52
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
@@ -2837,6 +2899,7 @@ GameObject:
   - component: {fileID: 861090391}
   - component: {fileID: 861090390}
   - component: {fileID: 861090389}
+  - component: {fileID: 861090394}
   m_Layer: 0
   m_Name: Green Door
   m_TagString: green door
@@ -2934,6 +2997,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!208 &861090394
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861090388}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1001 &881001935
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2988,6 +3067,18 @@ PrefabInstance:
     - target: {fileID: 3617642552065589668, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
       propertyPath: m_Name
       value: normal grenade pickup (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091162438047566139, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091162438047566139, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.06000042
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091162438047566139, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.52
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
@@ -3466,6 +3557,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: normal grenade pickup (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 6091162438047566139, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091162438047566139, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.06000042
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091162438047566139, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.52
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
 --- !u!4 &1045550567 stripped
@@ -3934,6 +4037,7 @@ GameObject:
   - component: {fileID: 1243389313}
   - component: {fileID: 1243389312}
   - component: {fileID: 1243389316}
+  - component: {fileID: 1243389317}
   m_Layer: 0
   m_Name: Red Door
   m_TagString: red door
@@ -4031,6 +4135,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f56414120012c54c82f67f5f2998bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!208 &1243389317
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243389311}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1001 &1277633817
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4085,6 +4205,18 @@ PrefabInstance:
     - target: {fileID: 3617642552065589668, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
       propertyPath: m_Name
       value: normal grenade pickup (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091162438047566139, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091162438047566139, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.06000042
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091162438047566139, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.52
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
@@ -4403,6 +4535,18 @@ PrefabInstance:
     - target: {fileID: 3617642552065589668, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
       propertyPath: m_Name
       value: normal grenade pickup (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091162438047566139, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091162438047566139, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.06000042
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091162438047566139, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.52
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
@@ -5287,6 +5431,18 @@ PrefabInstance:
     - target: {fileID: 3617642552065589668, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
       propertyPath: m_Name
       value: normal grenade pickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091162438047566139, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091162438047566139, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091162438047566139, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.52
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
@@ -7283,6 +7439,18 @@ PrefabInstance:
     - target: {fileID: 3617642552065589668, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
       propertyPath: m_Name
       value: normal grenade pickup (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091162438047566139, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091162438047566139, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.06000042
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091162438047566139, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.52
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61f3ced9f93947048a22e769ae9f3ed8, type: 3}

@@ -42,8 +42,6 @@ public class PlayerController : Damageable, IPlayerSubject
 
     public static PlayerController Instance;
 
-    public bool resumed;
-
     List<IPlayerObserver> observers = new List<IPlayerObserver>();
 
     private PlayerData playerDataForObservers = new PlayerData();
@@ -74,7 +72,8 @@ public class PlayerController : Damageable, IPlayerSubject
     // Update is called once per frame
     void Update()
     {
-
+        if (Time.timeScale == 0)
+            return;
         MouseLook();
 
         if (Input.GetKeyDown(KeyCode.R))
@@ -86,7 +85,7 @@ public class PlayerController : Damageable, IPlayerSubject
         if (!carryingGravity && !carryingNormal && !carryingEMP)
         {
             pistol.SetActive(true);
-            if (Input.GetMouseButtonDown(0) && resumed == true)
+            if (Input.GetMouseButtonDown(0))
             {
                 Shoot();
             }
@@ -98,15 +97,6 @@ public class PlayerController : Damageable, IPlayerSubject
 
         if (Input.GetKeyDown(KeyCode.Y))
             TakeDamage(10);
-
-        if (Time.timeScale == 0)
-        {
-            resumed = false;
-        }
-        else if (Time.timeScale == 1)
-        {
-            resumed = true;
-        }
     }
 
     public void HoldGrenade(int type)
