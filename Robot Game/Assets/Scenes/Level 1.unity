@@ -4568,6 +4568,10 @@ PrefabInstance:
       propertyPath: bulletSpawn
       value: 
       objectReference: {fileID: 1469508352}
+    - target: {fileID: 4370676999846402146, guid: 8c2618ffc597a4b4da3565ecced02ea3, type: 3}
+      propertyPath: m_Volume
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 4879185006939593827, guid: 8c2618ffc597a4b4da3565ecced02ea3, type: 3}
       propertyPath: m_RootOrder
       value: 6

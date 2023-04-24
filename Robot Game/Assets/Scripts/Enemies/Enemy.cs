@@ -40,6 +40,10 @@ public abstract class Enemy : Damageable
 
     public ParticleSystem muzzleFlash;
 
+    public AudioClip shoot;
+
+    private AudioSource src;
+
     protected override void Awake()
     {
         base.Awake();
@@ -51,6 +55,7 @@ public abstract class Enemy : Damageable
         shockState = new ShockState(this);
         deadState = new DeadState(this);
         SetState(wanderState);
+        src = GetComponent<AudioSource>();
         // Create state objects
     }
 
@@ -96,6 +101,7 @@ public abstract class Enemy : Damageable
     public virtual void Attack()
     {
         enemyAnimator.Play("Shoot_SingleShot_AR");
+        src.PlayOneShot(shoot);
         muzzleFlash.Play();
         GameObject bullet = Instantiate(bulletPrefab, muzzleFlash.transform.position, transform.rotation);
         Vector3 direction = new Vector3(target.transform.position.x - muzzleFlash.transform.position.x, 0, target.transform.position.z - muzzleFlash.transform.position.z).normalized;

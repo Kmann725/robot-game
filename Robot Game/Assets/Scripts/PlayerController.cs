@@ -12,6 +12,7 @@ public class PlayerController : Damageable, IPlayerSubject
     private float xRot;
 
     private Rigidbody rb;
+    private AudioSource src;
 
     public GameObject playerCamera;
     public GameObject pistol;
@@ -36,6 +37,8 @@ public class PlayerController : Damageable, IPlayerSubject
     public Transform groundCheck;
     public LayerMask groundLayer;
 
+    public AudioClip shoot;
+
     public static PlayerController Instance;
 
     List<IPlayerObserver> observers = new List<IPlayerObserver>();
@@ -52,6 +55,7 @@ public class PlayerController : Damageable, IPlayerSubject
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        src = GetComponent<AudioSource>();
         cam = GetComponentInChildren<Camera>();
         pistol = cam.transform.Find("Pistol").gameObject;
 
@@ -155,7 +159,8 @@ public class PlayerController : Damageable, IPlayerSubject
 
     void Shoot()
     {
-        
+        src.PlayOneShot(shoot);
+
         Quaternion bulletRot = bulletSpawn.transform.rotation;
         bulletRot.eulerAngles = new Vector3(bulletRot.eulerAngles.x - 0.5f, bulletRot.eulerAngles.y - 1.5f, bulletRot.eulerAngles.z);
 
