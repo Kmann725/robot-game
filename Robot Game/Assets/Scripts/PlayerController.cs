@@ -72,7 +72,7 @@ public class PlayerController : Damageable, IPlayerSubject
         if (Input.GetKeyDown(KeyCode.R))
         {
             Time.timeScale = 1;
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
         if (!carryingGravity && !carryingNormal && !carryingEMP)
