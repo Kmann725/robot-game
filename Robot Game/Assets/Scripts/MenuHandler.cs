@@ -9,5 +9,6 @@ public class MenuHandler : MonoBehaviour
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+        Destroy(ScoreManager.Instance.gameObject);
     }
 }

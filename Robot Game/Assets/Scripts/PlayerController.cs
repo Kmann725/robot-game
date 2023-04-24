@@ -235,6 +235,7 @@ public class PlayerController : Damageable, IPlayerSubject
     {
         src.PlayOneShot(hit);
         base.TakeDamage(damage);
+        ScoreManager.Instance.PlayerLostHealth();
         NotifyPlayerObservers();
     }
 

@@ -13,6 +13,7 @@ public class ScoreManager : Singleton<ScoreManager>
 {
     [HideInInspector] public int score;
     [HideInInspector] public bool lostHealth = false;
+    [HideInInspector] public bool playerRestarted = false;
 
     private void Awake()
     {
@@ -27,5 +28,11 @@ public class ScoreManager : Singleton<ScoreManager>
     public void PlayerLostHealth()
     {
         lostHealth = true;
+    }
+
+    public void PlayerRestarted()
+    {
+        if(GameController.Instance.level > 1)
+            playerRestarted = true;
     }
 }
