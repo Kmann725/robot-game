@@ -12,6 +12,8 @@ public class GravityWellGrenade : Grenade
 
     public override void Explode()
     {
+        src.PlayOneShot(soundEffect);
+
         Collider[] cols = Physics.OverlapSphere(transform.position, explosionRadius);
         foreach (Collider col in cols)
         {
@@ -23,6 +25,6 @@ public class GravityWellGrenade : Grenade
         }
 
         Instantiate(explosionEffect, transform.position, transform.rotation);
-        Destroy(gameObject);
+        Destroy(gameObject, 0.5f);
     }
 }

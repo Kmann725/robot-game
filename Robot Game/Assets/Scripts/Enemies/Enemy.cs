@@ -41,9 +41,7 @@ public abstract class Enemy : Damageable
     public ParticleSystem muzzleFlash;
 
     public AudioClip shoot;
-
-    private AudioSource src;
-
+    public AudioClip death;
 
     protected override void Awake()
     {
@@ -56,7 +54,6 @@ public abstract class Enemy : Damageable
         shockState = new ShockState(this);
         deadState = new DeadState(this);
         SetState(wanderState);
-        src = GetComponent<AudioSource>();
         // Create state objects
     }
 
@@ -142,6 +139,7 @@ public abstract class Enemy : Damageable
 
     protected override void Destruction()
     {
+        src.PlayOneShot(death);
         SetState(deadState);
         GameController.Instance.EnemyKilled();
     }

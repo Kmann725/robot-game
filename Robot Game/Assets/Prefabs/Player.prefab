@@ -5928,6 +5928,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 100
+  hit: {fileID: 0}
   speed: 5
   jump: 5
   mouseSensitivity: 5
@@ -5951,7 +5952,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   shoot: {fileID: 8300000, guid: 443c53fe787328d46ac028a71e95f93b, type: 3}
-  hit: {fileID: 8300000, guid: 909a5ee3669a98f4e9ca2abd34f48e9a, type: 3}
+  playerHit: {fileID: 8300000, guid: 909a5ee3669a98f4e9ca2abd34f48e9a, type: 3}
+  playerDeath: {fileID: 8300000, guid: 02c56c98edee2174798690bf563afa20, type: 3}
+  pickUp: {fileID: 8300000, guid: 11981b5c7fbc87f41949aed3c2ac804a, type: 3}
+  tutorialscript: {fileID: 0}
 --- !u!82 &4370676999846402146
 AudioSource:
   m_ObjectHideFlags: 0

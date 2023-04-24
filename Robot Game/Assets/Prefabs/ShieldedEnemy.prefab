@@ -1726,6 +1726,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 100
+  hit: {fileID: 8300000, guid: f15dd632a5a7cab4c94fee0ddc8e7437, type: 3}
   wanderRadius: 15
   chaseRadius: 20
   attackRadius: 15
@@ -1742,6 +1743,7 @@ MonoBehaviour:
     m_Bits: 1
   muzzleFlash: {fileID: 8872316375771371828}
   shoot: {fileID: 8300000, guid: 443c53fe787328d46ac028a71e95f93b, type: 3}
+  death: {fileID: 8300000, guid: f5bfa49137fa16345825a9e58cb90db7, type: 3}
   shieldObject: {fileID: 6418663197200987506}
 --- !u!135 &8872316374704134202
 SphereCollider:

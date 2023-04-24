@@ -9,14 +9,20 @@ public class Damageable : MonoBehaviour
 
     protected bool god = false;
 
+    protected AudioSource src;
+
+    public AudioClip hit;
+
     protected virtual void Awake()
     {
         currentHealth = maxHealth;
+        src = GetComponent<AudioSource>();
     }
 
     public virtual void TakeDamage(int damage)
     {
-        if(!god)
+        if (!god)
+            src.PlayOneShot(hit);
             currentHealth -= damage;
         if (currentHealth > maxHealth)
             currentHealth = maxHealth;

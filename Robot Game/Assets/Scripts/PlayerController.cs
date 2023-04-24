@@ -38,7 +38,9 @@ public class PlayerController : Damageable, IPlayerSubject
     public LayerMask groundLayer;
 
     public AudioClip shoot;
-    public AudioClip hit;
+    public AudioClip playerHit;
+    public AudioClip playerDeath;
+    public AudioClip pickUp;
 
     public static PlayerController Instance;
 
@@ -216,6 +218,8 @@ public class PlayerController : Damageable, IPlayerSubject
 
     public void GrabGrenade(string tag)
     {
+        src.PlayOneShot(pickUp);
+
         if (tag.Equals("normal grenade pickup"))
             normalGrenadeCount++;
         else if (tag.Equals("emp grenade pickup"))
@@ -227,7 +231,7 @@ public class PlayerController : Damageable, IPlayerSubject
 
     public override void TakeDamage(int damage)
     {
-        src.PlayOneShot(hit);
+        src.PlayOneShot(playerHit);
         base.TakeDamage(damage);
         ScoreManager.Instance.PlayerLostHealth();
         NotifyPlayerObservers();
@@ -262,7 +266,7 @@ public class PlayerController : Damageable, IPlayerSubject
 
     protected override void Destruction()
     {
-        // HANDLE PLAYER DEATH HERE
+        src.PlayOneShot(playerDeath);
     }
 
     private bool IsGrounded()
