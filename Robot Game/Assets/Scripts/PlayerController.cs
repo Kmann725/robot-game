@@ -38,6 +38,7 @@ public class PlayerController : Damageable, IPlayerSubject
     public LayerMask groundLayer;
 
     public AudioClip shoot;
+    public AudioClip hit;
 
     public static PlayerController Instance;
 
@@ -214,6 +215,7 @@ public class PlayerController : Damageable, IPlayerSubject
 
     public override void TakeDamage(int damage)
     {
+        src.PlayOneShot(hit);
         base.TakeDamage(damage);
         NotifyPlayerObservers();
     }
