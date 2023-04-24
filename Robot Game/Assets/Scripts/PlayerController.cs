@@ -42,6 +42,8 @@ public class PlayerController : Damageable, IPlayerSubject
 
     public static PlayerController Instance;
 
+    public bool resumed;
+
     List<IPlayerObserver> observers = new List<IPlayerObserver>();
 
     private PlayerData playerDataForObservers = new PlayerData();
@@ -84,7 +86,7 @@ public class PlayerController : Damageable, IPlayerSubject
         if (!carryingGravity && !carryingNormal && !carryingEMP)
         {
             pistol.SetActive(true);
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && resumed == true)
             {
                 Shoot();
             }
@@ -96,6 +98,15 @@ public class PlayerController : Damageable, IPlayerSubject
 
         if (Input.GetKeyDown(KeyCode.Y))
             TakeDamage(10);
+
+        if (Time.timeScale == 0)
+        {
+            resumed = false;
+        }
+        else if (Time.timeScale == 1)
+        {
+            resumed = true;
+        }
     }
 
     public void HoldGrenade(int type)
