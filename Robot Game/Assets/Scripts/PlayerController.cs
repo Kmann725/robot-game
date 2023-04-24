@@ -66,6 +66,7 @@ public class PlayerController : Damageable, IPlayerSubject
         {
             tutorialscript = GameObject.FindGameObjectWithTag("TutorialManager").GetComponent<TutorialScript>();
         }
+        Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
