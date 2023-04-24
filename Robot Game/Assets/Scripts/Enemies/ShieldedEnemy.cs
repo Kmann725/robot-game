@@ -9,13 +9,13 @@ public class ShieldedEnemy : Enemy
     protected override void Awake()
     {
         shieldObject.SetActive(false);
-        god = true;
         base.Awake();
     }
 
     public override void StartAttackCoroutine()
     {
         shieldObject.SetActive(true);
+        god = true;
         base.StartAttackCoroutine();
     }
 
