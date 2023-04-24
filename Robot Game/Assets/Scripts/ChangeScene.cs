@@ -15,6 +15,10 @@ public class ChangeScene : MonoBehaviour
     {
         if(other.tag == "Player")
         {
+            if (levelName == "Tutorial")
+            {
+                SceneManager.LoadScene("Level 1");
+            }
             if(levelName == "Level 1")
             {
                 SceneManager.LoadScene("Level 2");
