@@ -14,6 +14,7 @@ public class GameController : Singleton<GameController>
 {
     PlayerController playerController;
     ScoreManager scoreManager;
+    PauseMenuBehavior pauseMenu;
 
     float inputX;
     float inputZ;
@@ -32,6 +33,7 @@ public class GameController : Singleton<GameController>
     {
         playerController = FindObjectOfType<PlayerController>();
         scoreManager = ScoreManager.Instance;
+        pauseMenu = PauseMenuBehavior.Instance;
         TextBox = GameObject.FindGameObjectWithTag("textbox");
         text = TextBox.GetComponentInChildren<TextMeshProUGUI>();
     }
@@ -60,6 +62,13 @@ public class GameController : Singleton<GameController>
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (Time.timeScale == 1)
+                pauseMenu.gameObject.SetActive(true);
+            else if (Time.timeScale == 0)
+                pauseMenu.gameObject.SetActive(false);
+        }
         if (Time.timeScale == 0)
             return;
         inputX = Input.GetAxis("Horizontal");
@@ -79,10 +88,6 @@ public class GameController : Singleton<GameController>
         else if(Input.GetKeyDown(KeyCode.Alpha3))
         {
             playerController.HoldGrenade(3);
-        }
-        else if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            // Pause Game
         }
     }
 

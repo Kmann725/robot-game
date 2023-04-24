@@ -17,7 +17,6 @@ public class ChangeScene : MonoBehaviour
         {
             if (levelName == "Tutorial")
             {
-                Destroy(ScoreManager.Instance.gameObject);
                 SceneManager.LoadScene("Title Menu");
             }
             if(levelName == "Level 1")

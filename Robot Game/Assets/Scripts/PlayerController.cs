@@ -77,12 +77,6 @@ public class PlayerController : Damageable, IPlayerSubject
             return;
         MouseLook();
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Time.timeScale = 1;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-
         if (!carryingGravity && !carryingNormal && !carryingEMP)
         {
             pistol.SetActive(true);
