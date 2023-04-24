@@ -5931,7 +5931,7 @@ MonoBehaviour:
   hit: {fileID: 0}
   speed: 5
   jump: 5
-  mouseSensitivity: 5
+  mouseSensitivity: 4
   playerCamera: {fileID: 2310112505142906470}
   pistol: {fileID: 0}
   bullets: {fileID: 0}
