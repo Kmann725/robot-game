@@ -1935,6 +1935,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TextBox: {fileID: 0}
+  level: 1
 --- !u!4 &549821325
 Transform:
   m_ObjectHideFlags: 0

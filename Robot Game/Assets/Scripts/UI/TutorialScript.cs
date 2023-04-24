@@ -19,6 +19,7 @@ public class TutorialScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        IsTutorial = true;
         pauseGame();
         TextBox.SetActive(true);
         text.text = "Robots have taken over humanity! As a survivor of the apocalypse you are determined save mankind. You have armed yourself with the first weapon you could find and march your way to find the source of the robot threat. \nPress F to continue.";

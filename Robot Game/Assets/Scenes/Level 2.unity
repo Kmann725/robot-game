@@ -1895,6 +1895,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ba8d64811639234c9a89372fdbf82b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TextBox: {fileID: 0}
+  level: 2
 --- !u!4 &249132553
 Transform:
   m_ObjectHideFlags: 0
