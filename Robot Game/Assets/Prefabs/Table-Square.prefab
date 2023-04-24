@@ -301,9 +301,10 @@ GameObject:
   m_Component:
   - component: {fileID: 509591995978875513}
   - component: {fileID: 509591995978875512}
+  - component: {fileID: 380243742}
   m_Layer: 0
   m_Name: Table-Square
-  m_TagString: Untagged
+  m_TagString: physics object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -344,6 +345,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &380243742
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509591995978875515}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.282199, y: 0.98435783, z: 5.626793}
+  m_Center: {x: -0.11001158, y: 0.29186332, z: -0.13360214}
 --- !u!1 &509591996114755457
 GameObject:
   m_ObjectHideFlags: 0
