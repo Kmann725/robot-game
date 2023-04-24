@@ -34,7 +34,9 @@ public class DoorController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            if (Physics.Raycast(reticlePos, Camera.main.transform.forward, out var hit, 15f))
+            RaycastHit[] hits = new RaycastHit[5];
+            hits = Physics.RaycastAll(reticlePos, Camera.main.transform.forward, 15f);
+            foreach(RaycastHit hit in hits)
             {
                 if (hit.collider.gameObject == redButton)
                 {
