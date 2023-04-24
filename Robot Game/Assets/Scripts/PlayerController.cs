@@ -164,6 +164,7 @@ public class PlayerController : Damageable, IPlayerSubject
 
     void Shoot()
     {
+        src.volume = 0.4f;
         src.PlayOneShot(shoot);
 
         Quaternion bulletRot = bulletSpawn.transform.rotation;
@@ -218,6 +219,7 @@ public class PlayerController : Damageable, IPlayerSubject
 
     public void GrabGrenade(string tag)
     {
+        src.volume = 1f;
         src.PlayOneShot(pickUp);
 
         if (tag.Equals("normal grenade pickup"))
