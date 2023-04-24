@@ -20,6 +20,7 @@ public class EndingController : MonoBehaviour
         }
         yield return new WaitForSeconds(2);
         GameController.Instance.TextBox.gameObject.SetActive(false);
+        GameController.Instance.GameWon();
     }
 
     // Update is called once per frame
