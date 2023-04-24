@@ -23,6 +23,7 @@ TagManager:
   - ButtonTrigger
   - green door
   - textbox
+  - music
   layers:
   - Default
   - TransparentFX
