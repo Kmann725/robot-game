@@ -1631,9 +1631,9 @@ MonoBehaviour:
   currentHealth: 100
   hit: {fileID: 8300000, guid: f15dd632a5a7cab4c94fee0ddc8e7437, type: 3}
   wanderRadius: 15
-  chaseRadius: 30
-  attackRadius: 30
-  attackRate: 3
+  chaseRadius: 50
+  attackRadius: 50
+  attackRate: 2
   attackDamage: 25
   walkSpeed: 2
   runSpeed: 5
@@ -1659,7 +1659,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 30
+  m_Radius: 50
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &8872316374704134203
 CapsuleCollider:
