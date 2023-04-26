@@ -92,15 +92,8 @@ public abstract class Enemy : Damageable
 
     protected virtual IEnumerator ShockCoroutine()
     {
-        yield return new WaitForSeconds(3);
-        if (currentHealth <= 0)
-        {
-            SetState(deadState);
-        }
-        else
-        {
-            SetState(wanderState);
-        }
+        yield return new WaitForSeconds(10);
+        SetState(wanderState);
     }
 
     public virtual void Attack()

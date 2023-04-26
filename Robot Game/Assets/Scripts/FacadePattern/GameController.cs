@@ -119,7 +119,8 @@ public class GameController : Singleton<GameController>
 
     public void EnemyKilled()
     {
-        scoreManager.IncrementScore(1);
+        if(level < 4)
+            scoreManager.IncrementScore(1);
     }
 
     public void GameLost()

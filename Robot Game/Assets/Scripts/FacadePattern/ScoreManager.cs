@@ -11,7 +11,7 @@ using UnityEngine;
 
 public class ScoreManager : Singleton<ScoreManager>
 {
-    [HideInInspector] public int score;
+    [HideInInspector] public int score = 0;
     [HideInInspector] public bool lostHealth = false;
     [HideInInspector] public bool playerRestarted = false;
 

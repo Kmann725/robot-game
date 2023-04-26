@@ -22,8 +22,10 @@ public class Damageable : MonoBehaviour
     public virtual void TakeDamage(int damage)
     {
         if (!god)
+        {
             src.PlayOneShot(hit);
             currentHealth -= damage;
+        }
         if (currentHealth > maxHealth)
             currentHealth = maxHealth;
         if (currentHealth <= 0)

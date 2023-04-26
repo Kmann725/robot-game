@@ -16,6 +16,7 @@ public class DeadState : IEnemyState
         // Play Death Animation
         enemy.enemyAnimator.Play("Die");
         enemy.GetComponent<CapsuleCollider>().enabled = false;
+        enemy.StopAllCoroutines();
     }
 
     public void UpdateState()
