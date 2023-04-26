@@ -12,7 +12,7 @@ using UnityEngine;
 public class ScoreManager : Singleton<ScoreManager>
 {
     [HideInInspector] public int score = 0;
-    [HideInInspector] public bool lostHealth = false;
+    [HideInInspector] public bool shotEnemy = false;
     [HideInInspector] public bool playerRestarted = false;
 
     private void Awake()
@@ -25,9 +25,9 @@ public class ScoreManager : Singleton<ScoreManager>
         score += amount;
     }
 
-    public void PlayerLostHealth()
+    public void PlayerShotEnemy()
     {
-        lostHealth = true;
+        shotEnemy = true;
     }
 
     public void PlayerRestarted()
@@ -41,7 +41,7 @@ public class ScoreManager : Singleton<ScoreManager>
         int stars = 0;
         if (score < 10)
             stars++;
-        if (!lostHealth)
+        if (!shotEnemy)
             stars++;
         if (!playerRestarted)
             stars++;

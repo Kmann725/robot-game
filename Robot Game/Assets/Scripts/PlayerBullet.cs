@@ -18,6 +18,7 @@ public class PlayerBullet : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             collision.gameObject.GetComponent<Damageable>().TakeDamage(damage);
+            ScoreManager.Instance.PlayerShotEnemy();
         }
 
         Destroy(gameObject);

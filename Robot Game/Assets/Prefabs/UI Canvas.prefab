@@ -1565,8 +1565,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Star Earned for killing less than 10 robots
 
-    Star Earned for not taking
-    damage
+    Star Earned for not shooting
+    any enemies
 
     Star Earned for not restarting'
   m_isRightToLeft: 0
