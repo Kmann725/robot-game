@@ -8,7 +8,8 @@ public class OpenGreenDoor : MonoBehaviour, Command
 
     public OpenGreenDoor()
     {
-        greenDoor = GameObject.FindGameObjectWithTag("green door").GetComponent<GreenDoor>();
+        if (GameObject.FindGameObjectWithTag("green door") != null && GameObject.FindGameObjectWithTag("green door").TryGetComponent(out GreenDoor greenDoor))
+            this.greenDoor = greenDoor;
     }
 
     public void Execute()

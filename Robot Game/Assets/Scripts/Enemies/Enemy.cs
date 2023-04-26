@@ -127,7 +127,8 @@ public abstract class Enemy : Damageable
         if (target == null)
             return false;
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, target.transform.position - transform.position, out hit, 10000, raycastLayers))
+        Vector3 eyeHeight = new Vector3(0, 1f, 0);
+        if (Physics.Raycast(transform.position + eyeHeight, target.transform.position - transform.position, out hit, 10000, raycastLayers))
         {
             if (hit.collider.CompareTag("Player"))
                 return true;

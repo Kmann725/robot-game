@@ -12,7 +12,6 @@ public class PlayerController : Damageable, IPlayerSubject
     private float xRot;
 
     private Rigidbody rb;
-    private AudioSource src;
 
     public GameObject playerCamera;
     public GameObject pistol;

@@ -9,6 +9,7 @@ public class SniperEnemy : Enemy
     protected override void Awake()
     {
         lineRenderer = GetComponent<LineRenderer>();
+        lineRenderer.enabled = false;
         base.Awake();
     }
 
