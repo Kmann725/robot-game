@@ -21,6 +21,8 @@ public class SliderBehavior : MonoBehaviour
 
         slider.value = PlayerPrefs.GetFloat(GetSliderName());
 
+        SetVolume(slider.value);
+
         //init.InitializePlayerPrefs(GetSliderName());
     }
 
