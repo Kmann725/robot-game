@@ -1634,7 +1634,7 @@ MonoBehaviour:
   chaseRadius: 50
   attackRadius: 50
   attackRate: 2
-  attackDamage: 50
+  attackDamage: 30
   walkSpeed: 2
   runSpeed: 5
   target: {fileID: 0}
