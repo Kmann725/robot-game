@@ -1728,8 +1728,8 @@ MonoBehaviour:
   currentHealth: 100
   hit: {fileID: 8300000, guid: f15dd632a5a7cab4c94fee0ddc8e7437, type: 3}
   wanderRadius: 15
-  chaseRadius: 20
-  attackRadius: 15
+  chaseRadius: 30
+  attackRadius: 20
   attackRate: 1
   attackDamage: 15
   walkSpeed: 2
